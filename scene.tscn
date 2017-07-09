@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://fonts/segoe.fnt" type="BitmapFont" id=2]
@@ -19,7 +19,7 @@
 
 plane = Plane( 0, 1, 0, 0 )
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=2]
 
 ambient_light/enabled = true
 ambient_light/color = Color( 0.925781, 0.842606, 0.842606, 1 )
@@ -63,57 +63,45 @@ bcs/contrast = 1.0
 bcs/saturation = 1.0
 srgb/enabled = false
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 64.6215
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 61.0041
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 64.1907
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
 radius = 63.1471
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 56.4041
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=8]
 
 custom_solver_bias = 0.0
 radius = 53.0022
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=9]
 
 custom_solver_bias = 0.0
 radius = 47.2968
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=10]
 
 custom_solver_bias = 0.0
 radius = 52.1685
-
-[sub_resource type="BoxShape" id=13]
-
-extents = Vector3( 1, 1, 1 )
-
-[sub_resource type="BoxShape" id=14]
-
-extents = Vector3( 1, 1, 1 )
-
-[sub_resource type="BoxShape" id=12]
-
-extents = Vector3( 1, 1, 1 )
 
 [node name="Node" type="Node"]
 
@@ -188,10 +176,11 @@ geometry/baked_light_tex_id = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-environment = SubResource( 3 )
+environment = SubResource( 2 )
 
 [node name="ui_elements" type="Control" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -267,7 +256,7 @@ texture = ExtResource( 3 )
 editor/display_folded = true
 transform/pos = Vector2( 1566.89, 148.554 )
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 243.507, -4.08113 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -283,7 +272,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/char1"]
 
 transform/pos = Vector2( 243.507, -4.08113 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = true
 _update_shape_index = 0
 
@@ -292,7 +281,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 1137, 263 )
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 678.827, 39.4509 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -308,7 +297,7 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/char2"]
 
 transform/pos = Vector2( 678.827, 39.4509 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 trigger = true
 _update_shape_index = 0
 
@@ -317,7 +306,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 1070, 351 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 748.206, 116.992 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -333,7 +322,7 @@ texture = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/char3"]
 
 transform/pos = Vector2( 748.206, 116.992 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 trigger = true
 _update_shape_index = 0
 
@@ -342,7 +331,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 1144, 484 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 676.106, 142.839 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -358,7 +347,7 @@ texture = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/settings"]
 
 transform/pos = Vector2( 676.106, 142.839 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 trigger = true
 _update_shape_index = 0
 
@@ -369,7 +358,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 235, 536 )
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 575.795, 466.592 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -385,7 +374,7 @@ texture = ExtResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/schoolbag"]
 
 transform/pos = Vector2( 575.795, 466.592 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 trigger = true
 _update_shape_index = 0
 
@@ -396,7 +385,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 319, 473 )
 input/pickable = true
-shapes/0/shape = SubResource( 9 )
+shapes/0/shape = SubResource( 8 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 650.415, 519.668 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -412,7 +401,7 @@ texture = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/phone"]
 
 transform/pos = Vector2( 650.415, 519.668 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 trigger = true
 _update_shape_index = 0
 
@@ -423,7 +412,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 550, 407 )
 input/pickable = true
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 565.873, 587.915 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -439,7 +428,7 @@ texture = ExtResource( 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/map"]
 
 transform/pos = Vector2( 565.873, 587.915 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 trigger = true
 _update_shape_index = 0
 
@@ -449,7 +438,7 @@ _update_shape_index = 0
 
 editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 11 )
+shapes/0/shape = SubResource( 10 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1821.16, 1004 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
@@ -465,7 +454,7 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ui_elements/calendar"]
 
 transform/pos = Vector2( 1821.16, 1004 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 trigger = true
 _update_shape_index = 0
 
@@ -504,144 +493,15 @@ editor/display_folded = true
 
 [node name="npc" parent="npcs" instance=ExtResource( 12 )]
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5985, 1.70829, -7.10861 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44846, 1.70829, 12.5515 )
 
 [node name="objects" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="object" parent="objects" instance=ExtResource( 13 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4299, 1.70829, -1.33639 )
-
-[node name="npc1" type="StaticBody" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7671, 1.70829, 0 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 13 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
-[node name="npc1_mesh" type="TestCube" parent="npc1"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.184989, 0 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-
-[node name="npc1_trigger" type="Area" parent="npc1"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 14 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shapes/0/trigger = true
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 5.0
-monitoring = true
-monitorable = true
-collision/layers = 1
-collision/mask = 1
-
-[node name="CollisionShape" type="CollisionShape" parent="npc1/npc1_trigger"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 14 )
-trigger = true
-_update_shape_index = 0
-
-[node name="npc2" type="StaticBody" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 12 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6306, 1.56409, 10.8058 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
-
-[node name="npc2_mesh" type="TestCube" parent="npc2"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6306, 1.50904, 10.8058 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-
-[node name="npc2_trigger" type="Area" parent="npc2"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 10.6306, 1.56409, 10.8058 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 12 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shapes/0/trigger = true
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision/layers = 1
-collision/mask = 1
-
-[node name="CollisionShape" type="CollisionShape" parent="npc2/npc2_trigger"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 12 )
-trigger = true
-_update_shape_index = 0
 
 [node name="player" parent="." instance=ExtResource( 14 )]
 
@@ -664,17 +524,5 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549192, 2.66124 )
 [connection signal="mouse_enter" from="ui_elements/calendar" to="." method="_on_calendar_mouse_enter"]
 
 [connection signal="mouse_exit" from="ui_elements/calendar" to="." method="_on_calendar_mouse_exit"]
-
-[connection signal="input_event" from="npc1/npc1_trigger" to="." method="_on_npc1_trigger_input_event"]
-
-[connection signal="mouse_enter" from="npc1/npc1_trigger" to="." method="_on_npc1_trigger_mouse_enter"]
-
-[connection signal="mouse_exit" from="npc1/npc1_trigger" to="." method="_on_npc1_trigger_mouse_exit"]
-
-[connection signal="input_event" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_input_event"]
-
-[connection signal="mouse_enter" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_mouse_enter"]
-
-[connection signal="mouse_exit" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_mouse_exit"]
 
 

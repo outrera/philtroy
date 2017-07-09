@@ -42,7 +42,9 @@ func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
 	for object in get_node("objects").get_children():
-		print(str(object.get_name()) + " connecting!")
+		object.connect("look_at", self, "_look_at")
+	for object in get_node("npcs").get_children():
+		object.connect("dialogue", self, "_talk_to")
 		object.connect("look_at", self, "_look_at")
 
 func _process(delta):
@@ -53,10 +55,7 @@ func _process(delta):
 	#if dialogue is running and we press ui_exit, exit dialogue and delete dialogue nodes
 	if dialogue_running == true:
 		if Input.is_action_pressed("ui_exit"):
-			for x in get_node("ui_elements/ui_dialogue").get_children():
-				x.queue_free()
-			dialogue_running = false
-			blocking_ui = false
+			kill_dialogue()
 	
 func _fixed_process(delta):
 	#move player to mouse position
@@ -199,15 +198,15 @@ func start_dialogue(json,pos):
 	get_node("ui_elements/ui_dialogue/panel/text").set_text(game_data["dialogue"][ellie["branch"]]["text"])
 	for n in range(0,num_replies):
 		get_node("ui_elements/ui_dialogue/reply" + str(n+1)).set_text(game_data["dialogue"][json["branch"]]["responses"][n]["reply"])
-
+	
 #setup the character dialogue panel
 #TODO: consider one function to position and size panels and labels dynamically instead
 #TODO: panel should dynamically resize according to number of replies in "responses" array
 func dialogue_window():
-	
+	if dialogue_running == false:
+		hide_ui_icons()
 	dialogue_running = true
 	var reply_offset = 0
-	hide_ui_icons()
 	var labels = ["panel","dialogue"]
 	for n in range(num_replies):
 		labels.push_back("reply" + str(n+1))
@@ -245,17 +244,35 @@ func new_label(labels):
 		else:
 			var node = reply_button.instance()
 			node.set_name(lbl)
-			node.connect("reply_selected",self,"_reply_picked",[], CONNECT_ONESHOT)
+			node.connect("reply_selected",self,"_pick_reply",[], CONNECT_ONESHOT)
 			get_node("ui_elements/ui_dialogue").add_child(node)
 
 func hide_ui_icons():
 	for ui_node in get_tree().get_nodes_in_group("UI_icons"):
 		ui_hide_show(ui_node, Vector2(0,200), Tween.TRANS_ELASTIC, Tween.EASE_OUT)
-		
-func _reply_picked(n):
-	ellie["branch"] = game_data["dialogue"][ellie["branch"]]["responses"][n]["next"]
-	start_dialogue(ellie, dialog_pos)
 
+func unhide_ui_icons():
+	for ui_node in get_tree().get_nodes_in_group("UI_icons"):
+		ui_hide_show(ui_node, Vector2(0,-200), Tween.TRANS_ELASTIC, Tween.EASE_OUT)
+	
+func kill_dialogue():
+	for x in get_node("ui_elements/ui_dialogue").get_children():
+		x.queue_free()
+	unhide_ui_icons()
+	dialogue_running = false
+	blocking_ui = false
+		
+func _pick_reply(n):
+	if game_data["dialogue"][ellie["branch"]]["responses"][n]["next"] != "exit":
+		ellie["branch"] = game_data["dialogue"][ellie["branch"]]["responses"][n]["next"]
+		start_dialogue(ellie, dialog_pos)
+	else:
+		kill_dialogue()
+		
 func _look_at(text):
-	print("looking at")
 	label_hotspot.set_text(text)
+
+func _talk_to(dialogue, branch):
+	label_hotspot.set_text("talking to NPC")
+	var npc_dialogue = {"dialogue": dialogue, "branch": branch}
+	start_dialogue(npc_dialogue,dialog_pos)
