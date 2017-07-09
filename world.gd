@@ -18,6 +18,7 @@ var is_moving = false
 var no_move_on_click = false
 var blocking_ui = false
 var dialogue_running = false
+var phone_opened = false
 
 #get some nodes for easy access
 onready var player = get_node("player")
@@ -56,6 +57,12 @@ func _process(delta):
 	if dialogue_running == true:
 		if Input.is_action_pressed("ui_exit"):
 			kill_dialogue()
+	if phone_opened == true:
+		if Input.is_action_pressed("ui_exit"):
+			no_move_on_click = false
+			phone_opened = false
+			ui_hide_show(get_node("ui_elements/ui_phone"), Vector2(0,1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			unhide_ui_icons()
 	
 func _fixed_process(delta):
 	#move player to mouse position
@@ -72,8 +79,7 @@ func _input(event):
 	if hover_node and hover_node.get_name() == "phone":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 			no_move_on_click = true
-			#hide UI icons when showing phone UI
-			#TODO: consider using node groups instead of 3 calls
+			phone_opened = true
 			hide_ui_icons()
 			ui_hide_show(get_node("ui_elements/ui_phone"), Vector2(0,-1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
 

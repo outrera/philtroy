@@ -1,12 +1,10 @@
 extends Label
 
-var num_reply = 0
+var num_reply = 0 #this is set to another number in world.gd, when the label is instanced, to identify the reply for when you pick it later
 signal reply_selected(a)
 
 func _ready():
-
 	pass
-
 
 func _on_Label_mouse_enter():
 	add_color_override("font_color", Color(1,0,1))
