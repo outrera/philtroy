@@ -66,7 +66,6 @@ func _process(delta):
 	
 func _fixed_process(delta):
 	#move player to mouse position
-	#TODO: make player instanced scene
 	#TODO: make player turn smoother
 	if is_moving:
 		if !blocking_ui:
@@ -145,7 +144,6 @@ func ui_hide_show(gui_node, move_delta, method1, method2):
 #below functions handle what happens when we interact with characters.
 #in the future we want characters to be able to appear in more that one scene
 #so then every character will be an instanced scene instead
-#TODO: make every character a scene, that we instance as node of container "characters"		
 func _on_npc1_trigger_mouse_enter():
 	var labelname = get_node("npc1").get_name()
 	label_hotspot.set_text(labelname)
@@ -207,7 +205,6 @@ func start_dialogue(json,pos):
 	
 #setup the character dialogue panel
 #TODO: consider one function to position and size panels and labels dynamically instead
-#TODO: panel should dynamically resize according to number of replies in "responses" array
 func dialogue_window():
 	if dialogue_running == false:
 		hide_ui_icons()
