@@ -12,6 +12,7 @@ var hover_node = null
 var num_replies = 0
 var dialog_branch = null
 var dialog_pos
+var npc_dialogue
 
 #flags/states
 var is_moving = false
@@ -34,9 +35,6 @@ onready var viewsize = get_viewport().get_rect().size
 
 #set character start dialogues
 var ellie = {"dialogue": "res://dialogue/ellie_start.json", "branch": "a"}
-#var anthea = {"dialogue": "anthea_start.json", "branch": "a"}
-#var crystal = {"dialogue": "crystal_start.json", "branch": "a"}
-#var ben = {"dialogue": "ben_start.json", "branch": "a"}
 
 func _ready():
 	set_process(true)
@@ -141,43 +139,6 @@ func ui_hide_show(gui_node, move_delta, method1, method2):
 	effect_ui_hide_show.interpolate_property (gui_node, "transform/pos", gui_node.get_pos(), gui_node.get_pos() + move_delta, 1, method1, method2)
 	effect_ui_hide_show.start()
 
-#below functions handle what happens when we interact with characters.
-#in the future we want characters to be able to appear in more that one scene
-#so then every character will be an instanced scene instead
-func _on_npc1_trigger_mouse_enter():
-	var labelname = get_node("npc1").get_name()
-	label_hotspot.set_text(labelname)
-
-func _on_npc1_trigger_mouse_exit():
-	label_hotspot.set_text("")
-
-func _on_npc1_trigger_input_event( camera, event, click_pos, click_normal, shape_idx ):
-	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-		if event.is_pressed():
-			var npc_pos = get_node("npc1").get_global_transform().origin
-			dialog_pos = get_node("Camera").unproject_position(npc_pos)
-			blocking_ui = true	
-			start_dialogue(ellie, dialog_pos)
-
-	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
-		label_hotspot.set_text("This is Ellie. You can talk to her with LMB.")
-
-func _on_npc2_trigger_mouse_enter():
-	var labelname = get_node("npc2").get_name()
-	label_hotspot.set_text(labelname)	
-	
-func _on_npc2_trigger_mouse_exit():
-	label_hotspot.set_text("")
-
-func _on_npc2_trigger_input_event( camera, event, click_pos, click_normal, shape_idx ):
-	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-		if event.is_pressed():
-			label_hotspot.set_text("You can´t talk to cubes")
-
-	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
-		label_hotspot.set_text("This is cube. You can´t talk to cubes")
-
-
 #dynamically load the json for character dialogue
 func load_json(json, type):
 	var file = File.new();
@@ -277,5 +238,5 @@ func _look_at(text):
 
 func _talk_to(dialogue, branch):
 	label_hotspot.set_text("talking to NPC")
-	var npc_dialogue = {"dialogue": dialogue, "branch": branch}
+	npc_dialogue = {"dialogue": dialogue, "branch": branch}
 	start_dialogue(npc_dialogue,dialog_pos)
