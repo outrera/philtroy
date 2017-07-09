@@ -5,12 +5,24 @@ is an adventure//dating game in the vein of Leisure suit Larry. The version on G
 Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
 TODO next:
-- "Look at" functionality
-- Close Phone UI
-- Restore Ui icons
-- Close dialogue with mouse
+- Implement schoolbag and map UI´s
+- Implement daycycle functionality
+- NPCs should remember previous dialogues
+- Implement event system (with calendar UI)
+- more cleanup and reorganizing, as always...
 
 Updates:
+
+2017/07/09
+
+version 0.0.2 alpha
+
+- created a start_dialogue() function and moved over everything from load_json() that had nothing to do with actually loading a json (I might want to use it for other things tha dialogue...).
+- started implementing RMB look at-functionality
+- created a kill_dialogue() function since functionality is used more than once
+- finished converting Player, NPC´s and objects to instanced asset scenes
+- ESC to exit Phone UI and restore UI icons
+- General code cleanup and reorganizing
 
 2017/07/08
 
