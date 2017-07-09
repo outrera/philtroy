@@ -1,6 +1,8 @@
 # philtroy
 Philemon Troy and the Student Body Pageant
-is an adventure//dating game in the vein of Leisure suit Larry. The version on GitHub will be censored to comply with TOS, the code and functionality will be the same as the full version, though. Someone would probably give this game a Mature 17+ rating. 
+is a point´n´click adventure/dating game in the vein of Leisure suit Larry. The version on GitHub will be censored to comply with TOS, the code and functionality will be the same as the full version.
+
+Disclaimer: THIS IS A VERY BAREBONES GAME FRAMEWORK RIGHT NOW. DON`T DOWNLOAD THIS EXPECTING A GAME ANYWHERE NEAR COMPLETION. It´s basically a cube gliding around on a board, talking to other cubes :) I will take two weeks off in september, and then I will work on graphics, until then, the code might still be interesting to you, if you want to make the same type of game.
 
 Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
@@ -9,6 +11,8 @@ TODO next:
 - Implement daycycle functionality
 - NPCs should remember previous dialogues
 - Implement event system (with calendar UI)
+- implement dialogue paging for long dialogue texts 
+- nake sure that UI dialogues are really blocking
 - more cleanup and reorganizing, as always...
 
 Updates:
