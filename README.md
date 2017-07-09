@@ -19,5 +19,6 @@ Features:
 
 Manual:
 - leftclick to initiate conversation
-- escape to exit dialogue
-- ctrl+Q to quit game
+- ESC to exit dialogue
+- CTRL+Q to quit game
+- Phone UI is just a placeholder, no way to close down, you´ll need to CTRL+Q
