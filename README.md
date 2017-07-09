@@ -29,4 +29,6 @@ Manual:
 - CTRL+Q to quit game
 - Phone UI is just a placeholder, no way to close down, you´ll need to CTRL+Q
 
+testing
+
 
