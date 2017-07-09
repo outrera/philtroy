@@ -36,11 +36,10 @@ Features:
 - simple object and character collision 
 
 Manual:
-- leftclick to initiate conversation
-- ESC to exit dialogue
+- LMB-click to initiate conversation
+- RMB-click to look at things, for more detalied descriptions
+- ESC to exit all UI dialogs
 - CTRL+Q to quit game
-- Phone UI is just a placeholder, no way to close down, you´ll need to CTRL+Q
 
-testing
 
 
