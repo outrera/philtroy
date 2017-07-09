@@ -4,6 +4,12 @@ is an adventure//dating game in the vein of Leisure suit Larry. The version on G
 
 Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
+TODO next:
+- "Look at" functionality
+- Close Phone UI
+- Restore Ui icons
+- Close dialogue with mouse
+
 Updates:
 
 2017/07/08
@@ -22,3 +28,5 @@ Manual:
 - ESC to exit dialogue
 - CTRL+Q to quit game
 - Phone UI is just a placeholder, no way to close down, you´ll need to CTRL+Q
+
+
