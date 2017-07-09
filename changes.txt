@@ -1,0 +1,3 @@
+- created a start_dialogue() function and moved over everything from load_json() that had nothing to do with actually loading a json (I might want to use it for other things tha dialogue...).
+- started implementing RMB look at-functionality 
+- started converting NPC´s and objects to instanced asset scenes

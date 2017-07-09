@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=28 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://fonts/segoe.fnt" type="BitmapFont" id=2]
@@ -11,14 +11,13 @@
 [ext_resource path="res://graphics/mobile.png" type="Texture" id=9]
 [ext_resource path="res://graphics/map.png" type="Texture" id=10]
 [ext_resource path="res://graphics/calendar.png" type="Texture" id=11]
+[ext_resource path="res://asset scenes/npc.tscn" type="PackedScene" id=12]
+[ext_resource path="res://asset scenes/object.tscn" type="PackedScene" id=13]
+[ext_resource path="res://asset scenes/player.tscn" type="PackedScene" id=14]
 
 [sub_resource type="PlaneShape" id=1]
 
 plane = Plane( 0, 1, 0, 0 )
-
-[sub_resource type="BoxShape" id=2]
-
-extents = Vector3( 1, 1, 1 )
 
 [sub_resource type="Environment" id=3]
 
@@ -104,15 +103,15 @@ radius = 47.2968
 custom_solver_bias = 0.0
 radius = 52.1685
 
-[sub_resource type="BoxShape" id=12]
-
-extents = Vector3( 1, 1, 1 )
-
 [sub_resource type="BoxShape" id=13]
 
 extents = Vector3( 1, 1, 1 )
 
 [sub_resource type="BoxShape" id=14]
+
+extents = Vector3( 1, 1, 1 )
+
+[sub_resource type="BoxShape" id=12]
 
 extents = Vector3( 1, 1, 1 )
 
@@ -122,6 +121,7 @@ script/script = ExtResource( 1 )
 
 [node name="Area" type="Area" parent="."]
 
+editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555074, 0 )
 input/ray_pickable = true
@@ -154,7 +154,7 @@ _update_shape_index = 0
 [node name="Camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( -0.904627, 0.320319, -0.281148, 0.125114, 0.830181, 0.543273, 0.407425, 0.456284, -0.79108, -9.92103, 11.4286, -12.6359 )
+transform/local = Transform( -0.75105, 0.437046, -0.494887, 0.125114, 0.830181, 0.543273, 0.648282, 0.346108, -0.678187, -9.92103, 11.4286, -12.6359 )
 projection = 0
 fov = 65.0
 near = 0.1
@@ -166,72 +166,7 @@ environment = null
 h_offset = 0.0
 v_offset = 0.0
 
-[node name="player" type="KinematicBody" parent="."]
-
-editor/display_folded = true
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.514014, 0 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0165, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-collide_with/static = true
-collide_with/kinematic = true
-collide_with/rigid = true
-collide_with/character = true
-collision/margin = 0.001
-
-[node name="TestCube" type="TestCube" parent="player"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0165, 0 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-
-[node name="TestCube" type="TestCube" parent="player/TestCube"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1.37718 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-
-[node name="CollisionShape" type="CollisionShape" parent="player"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0165, 0 )
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="floor" type="TestCube" parent="."]
+[node name="ground" type="TestCube" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, 0, 0 )
@@ -547,6 +482,8 @@ margin/bottom = 40.0
 
 [node name="effects" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="ui_hover" type="Tween" parent="effects"]
 
 playback/process_mode = 1
@@ -561,70 +498,19 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="npc2" type="StaticBody" parent="."]
+[node name="npcs" type="Node" parent="."]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 12 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6306, 1.56409, 10.8058 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
+editor/display_folded = true
 
-[node name="npc2_mesh" type="TestCube" parent="npc2"]
+[node name="npc" parent="npcs" instance=ExtResource( 12 )]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6306, 1.50904, 10.8058 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5985, 1.70829, -7.10861 )
 
-[node name="npc2_trigger" type="Area" parent="npc2"]
+[node name="objects" type="Node" parent="."]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 10.6306, 1.56409, 10.8058 )
-input/ray_pickable = true
-input/capture_on_drag = false
-shape_count = 1
-shapes/0/shape = SubResource( 12 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shapes/0/trigger = true
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision/layers = 1
-collision/mask = 1
+[node name="object" parent="objects" instance=ExtResource( 13 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="npc2/npc2_trigger"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 12 )
-trigger = true
-_update_shape_index = 0
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4299, 1.70829, -1.33639 )
 
 [node name="npc1" type="StaticBody" parent="."]
 
@@ -692,6 +578,75 @@ shape = SubResource( 14 )
 trigger = true
 _update_shape_index = 0
 
+[node name="npc2" type="StaticBody" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 12 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6306, 1.56409, 10.8058 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="npc2_mesh" type="TestCube" parent="npc2"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6306, 1.50904, 10.8058 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="npc2_trigger" type="Area" parent="npc2"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 10.6306, 1.56409, 10.8058 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 12 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shapes/0/trigger = true
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision/layers = 1
+collision/mask = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="npc2/npc2_trigger"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 12 )
+trigger = true
+_update_shape_index = 0
+
+[node name="player" parent="." instance=ExtResource( 14 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549192, 2.66124 )
+
 [connection signal="input_event" from="Area" to="." method="_on_Area_input_event"]
 
 [connection signal="mouse_enter" from="ui_elements/schoolbag" to="." method="_on_schoolbag_mouse_enter"]
@@ -710,16 +665,16 @@ _update_shape_index = 0
 
 [connection signal="mouse_exit" from="ui_elements/calendar" to="." method="_on_calendar_mouse_exit"]
 
-[connection signal="input_event" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_input_event"]
-
-[connection signal="mouse_enter" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_mouse_enter"]
-
-[connection signal="mouse_exit" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_mouse_exit"]
-
 [connection signal="input_event" from="npc1/npc1_trigger" to="." method="_on_npc1_trigger_input_event"]
 
 [connection signal="mouse_enter" from="npc1/npc1_trigger" to="." method="_on_npc1_trigger_mouse_enter"]
 
 [connection signal="mouse_exit" from="npc1/npc1_trigger" to="." method="_on_npc1_trigger_mouse_exit"]
+
+[connection signal="input_event" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_input_event"]
+
+[connection signal="mouse_enter" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_mouse_enter"]
+
+[connection signal="mouse_exit" from="npc2/npc2_trigger" to="." method="_on_npc2_trigger_mouse_exit"]
 
 

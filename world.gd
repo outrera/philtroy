@@ -32,7 +32,7 @@ onready var reply_button = load("res://asset scenes/reply.tscn")
 onready var viewsize = get_viewport().get_rect().size
 
 #set character start dialogues
-var ellie = {"dialogue": "ellie_start.json", "branch": "a"}
+var ellie = {"dialogue": "res://dialogue/ellie_start.json", "branch": "a"}
 #var anthea = {"dialogue": "anthea_start.json", "branch": "a"}
 #var crystal = {"dialogue": "crystal_start.json", "branch": "a"}
 #var ben = {"dialogue": "ben_start.json", "branch": "a"}
@@ -41,6 +41,9 @@ func _ready():
 	set_process(true)
 	set_fixed_process(true)
 	set_process_input(true)
+	for object in get_node("objects").get_children():
+		print(str(object.get_name()) + " connecting!")
+		object.connect("look_at", self, "_look_at")
 
 func _process(delta):
 	if Input.is_action_pressed("ui_reload"):
@@ -151,10 +154,10 @@ func _on_npc1_trigger_input_event( camera, event, click_pos, click_normal, shape
 			var npc_pos = get_node("npc1").get_global_transform().origin
 			dialog_pos = get_node("Camera").unproject_position(npc_pos)
 			blocking_ui = true	
-			load_json(ellie, dialog_pos)
+			start_dialogue(ellie, dialog_pos)
 
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
-		label_hotspot.set_text("RMB")
+		label_hotspot.set_text("This is Ellie. You can talk to her with LMB.")
 
 func _on_npc2_trigger_mouse_enter():
 	var labelname = get_node("npc2").get_name()
@@ -163,11 +166,24 @@ func _on_npc2_trigger_mouse_enter():
 func _on_npc2_trigger_mouse_exit():
 	label_hotspot.set_text("")
 
+func _on_npc2_trigger_input_event( camera, event, click_pos, click_normal, shape_idx ):
+	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
+		if event.is_pressed():
+			label_hotspot.set_text("You can´t talk to cubes")
+
+	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
+		label_hotspot.set_text("This is cube. You can´t talk to cubes")
+
+
 #dynamically load the json for character dialogue
-func load_json(json,pos):
+func load_json(json, type):
 	var file = File.new();
-	file.open("res://dialogue/" + json["dialogue"], File.READ);
+	file.open(json[type], File.READ);
 	game_data.parse_json(file.get_as_text())	
+
+func start_dialogue(json,pos):
+	load_json(json, "dialogue")
+	
 	num_replies = game_data["dialogue"][json["branch"]]["responses"].size()
 
 	dialogue_window()
@@ -238,6 +254,8 @@ func hide_ui_icons():
 		
 func _reply_picked(n):
 	ellie["branch"] = game_data["dialogue"][ellie["branch"]]["responses"][n]["next"]
-	load_json(ellie, dialog_pos)
+	start_dialogue(ellie, dialog_pos)
 
-
+func _look_at(text):
+	print("looking at")
+	label_hotspot.set_text(text)
