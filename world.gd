@@ -79,32 +79,23 @@ func _process(delta):
 			unhide_ui_icons()
 	
 func _fixed_process(delta):
-	#move player to mouse position
-	#TODO: make player turn smoother
+	#move and rotate player towards set target
 	if is_moving:
 		if !blocking_ui:
-#			player.move(direction * player_speed * delta)
-#			curpos = player.get_global_transform().origin
-#			if curpos.distance_to(startpos) > distance_to_target:
-#				is_moving = false
-				
-			#new movement code
-			if player_pos.distance_to(target_pos) > 5:
+			turn_towards()
+			if player_pos.distance_to(target_pos) > 3:
+				player.move(playerFacing*get_fixed_process_delta_time()*3)
 
-				var t = player.get_transform()
-				var lookDir = target_pos - player_pos
-				var rotTransform = t.looking_at(target_pos,Vector3(0,1,0))
-				var thisRotation = Quat(t.basis).slerp(rotTransform.basis,value*0.1)
-				value += delta
-				if value>1:
-    				value = 1
-				player.set_transform(Transform(thisRotation,t.origin))	
-				player_pos = player.get_global_transform().origin
-				helper_pos = helper.get_global_transform().origin	
-				playerFacing = (helper_pos - player_pos).normalized()
-				player.move(playerFacing*delta*3)
-			else:
-				pass
+func turn_towards():
+	var t = player.get_transform()
+	var lookDir = target_pos - player_pos
+	var rotTransform = t.looking_at(target_pos,Vector3(0,1,0))
+	var thisRotation = Quat(t.basis).slerp(rotTransform.basis,value*0.1)
+	value += get_fixed_process_delta_time()
+	player.set_transform(Transform(thisRotation,t.origin))	
+	player_pos = player.get_global_transform().origin
+	helper_pos = helper.get_global_transform().origin	
+	playerFacing = (helper_pos - player_pos).normalized()
 
 func _input(event):
 	if hover_node and hover_node.get_name() == "phone":	
@@ -120,6 +111,7 @@ func _on_Area_input_event( camera, event, click_pos, click_normal, shape_idx ):
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and no_move_on_click == false:
 			#preparing for new movement code
 			is_moving = true
+			value = 0 
 			player_pos = player.get_global_transform().origin
 			helper_pos = helper.get_global_transform().origin
 			target_pos = click_pos

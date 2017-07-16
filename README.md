@@ -1,18 +1,12 @@
 # philtroy
-<<<<<<< HEAD
-Philemon Troy and the Student Body Pageant
-is a point´n´click adventure/dating game in the vein of Leisure suit Larry. The version on GitHub will be censored to comply with TOS, the code and functionality will be the same as the full version.
-=======
 
 Philemon Troy and the Student Body Pageant is a point´n´click adventure/dating game in the vein of Leisure suit Larry. The version on GitHub will be censored to comply with TOS, the code and functionality will be the same as the full version.
->>>>>>> 631e9f2ee1f99630db8c80aca5da0bf45fbc04c5
 
-Disclaimer: THIS IS A VERY BAREBONES GAME FRAMEWORK RIGHT NOW. DON`T DOWNLOAD THIS EXPECTING A GAME ANYWHERE NEAR COMPLETION. It´s basically a cube gliding around on a board, talking to other cubes :) I will take two weeks off in september, and then I will work on graphics, until then, the code might still be interesting to you, if you want to make the same type of game.
+Disclaimer: THIS IS A VERY BAREBONES GAME PROTYPE RIGHT NOW. DON`T DOWNLOAD THIS EXPECTING A GAME ANYWHERE NEAR COMPLETION. It´s basically a cube gliding around on a board, talking to other cubes :) I will take two weeks off in september, and then I will work on graphics, until then, the code might still be interesting to you, if you want to make the same type of game.
 
 Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
 TODO:
-<<<<<<< HEAD
 - Replace testcube with actual meshes imported from Blender
 - flip through relies and selecting with keyboard
 - Implement schoolbag, calendar and map UI´s
@@ -61,13 +55,11 @@ Updates:
 
 Implemented simple turn and move towards functionality.
 still some polishing needed. Player should move towards NPC before talking. If mouseclick is too close to player, player won´t play fully. Turn speed should be relative to distance to target (with min and max speeds), and if close to target, player should turn without moving. Not hard to do, just need to take the time.
->>>>>>> 631e9f2ee1f99630db8c80aca5da0bf45fbc04c5
 
 2017/07/09
 
 version 0.0.2 alpha
 
-<<<<<<< HEAD
 - created a start_dialogue() function and moved over everything from load_json() that had nothing to do with actually loading a json (I might want to use it for other things tha dialogue...).
 - started implementing RMB look at-functionality
 - created a kill_dialogue() function since functionality is used more than once
@@ -80,21 +72,6 @@ version 0.0.2 alpha
 First alpha, let´s call it v0.0.1 :)
 Very basic functionality, and placeholder graphics (or programmer art if you will;)
 
-Features:
-- Move player around with mouseclick (be the testcube!)
-- UI hover effects
-- Dialogue system based on json
-- simple object and character collision 
-
-Manual:
-- LMB-click to initiate conversation
-- RMB-click to look at things, for more detalied descriptions
-- ESC to exit all UI dialogs
-- CTRL+Q to quit game
-
-
-
-=======
 created a start_dialogue() function and moved over everything from load_json() that had nothing to do with actually loading a json (I might want to use it for other things tha dialogue...).
 started implementing RMB look at-functionality
 created a kill_dialogue() function since functionality is used more than once
@@ -111,10 +88,10 @@ Move player around with mouseclick (be the testcube!)
 UI hover effects
 Dialogue system based on json
 simple object and character collision
+
 Manual:
 
 LMB-click to initiate conversation
 RMB-click to look at things, for more detalied descriptions
 ESC to exit all UI dialogs
 CTRL+Q to quit game
->>>>>>> 631e9f2ee1f99630db8c80aca5da0bf45fbc04c5
