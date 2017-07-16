@@ -72,18 +72,6 @@ version 0.0.2 alpha
 First alpha, let´s call it v0.0.1 :)
 Very basic functionality, and placeholder graphics (or programmer art if you will;)
 
-Features:
-- Move player around with mouseclick (be the testcube!)
-- UI hover effects
-- Dialogue system based on json
-- simple object and character collision 
-
-Manual:
-- LMB-click to initiate conversation
-- RMB-click to look at things, for more detalied descriptions
-- ESC to exit all UI dialogs
-- CTRL+Q to quit game
-
 created a start_dialogue() function and moved over everything from load_json() that had nothing to do with actually loading a json (I might want to use it for other things tha dialogue...).
 started implementing RMB look at-functionality
 created a kill_dialogue() function since functionality is used more than once
@@ -100,6 +88,7 @@ Move player around with mouseclick (be the testcube!)
 UI hover effects
 Dialogue system based on json
 simple object and character collision
+
 Manual:
 
 LMB-click to initiate conversation
