@@ -139,7 +139,7 @@ shape = SubResource( 1 )
 trigger = true
 _update_shape_index = 0
 
-[node name="Camera" type="Camera" parent="."]
+[node name="camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( -0.75105, 0.437046, -0.494887, 0.125114, 0.830181, 0.543273, 0.648282, 0.346108, -0.678187, -9.92103, 11.4286, -12.6359 )
@@ -489,11 +489,15 @@ playback/speed = 1.0
 
 [node name="npcs" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="npc" parent="npcs" instance=ExtResource( 12 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44846, 1.70829, 12.5515 )
 
 [node name="objects" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="object" parent="objects" instance=ExtResource( 13 )]
 
@@ -501,7 +505,16 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4299, 1.70829, -1.336
 
 [node name="player" parent="." instance=ExtResource( 14 )]
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549192, 2.66124 )
+editor/display_folded = true
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0942068 )
+
+[node name="geometry" parent="player"]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+
+[node name="CollisionShape" parent="player"]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 
 [connection signal="input_event" from="Area" to="." method="_on_Area_input_event"]
 
@@ -522,3 +535,4 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549192, 2.66124 )
 [connection signal="mouse_exit" from="ui_elements/calendar" to="." method="_on_calendar_mouse_exit"]
 
 
+[editable path="player"]
