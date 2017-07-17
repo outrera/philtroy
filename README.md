@@ -8,7 +8,7 @@ Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
 TODO:
 - Replace testcube with actual meshes imported from Blender
-- flip through relies and selecting with keyboard
+- ~~flip through relies and selecting with keyboard~~
 - Implement schoolbag, calendar and map UI´s
 - Implement day/night cycle functionality
 - Implement event system
@@ -24,8 +24,7 @@ MAYBE:
 ISSUES:
 - NPCs should remember previous dialogues
 - Make sure that UI dialogues are really blocking
-- how to store character properties?
-
+- how to store character properties? #pending merge of extended dialogue system
 
 
 Updates:
