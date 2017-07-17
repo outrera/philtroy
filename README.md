@@ -8,7 +8,7 @@ Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
 TODO:
 - Replace testcube with actual meshes imported from Blender
-- ~~flip through relies and selecting with keyboard~~
+- ~~flip through replies and selecting with keyboard~~
 - Implement schoolbag, calendar and map UI´s
 - Implement day/night cycle functionality
 - Implement event system
