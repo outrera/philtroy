@@ -54,7 +54,7 @@ Updates:
 2017/07/16
 
 Implemented simple turn and move towards functionality.
-still some polishing needed. Player should move towards NPC before talking. If mouseclick is too close to player, player won´t play fully. Turn speed should be relative to distance to target (with min and max speeds), and if close to target, player should turn without moving. Not hard to do, just need to take the time.
+still some polishing needed. Player should move towards NPC before talking. ~~Turn speed should be relative to distance to target (with min and max speeds), and if close to target, player should turn without moving~~. Not hard to do, just need to take the time.
 
 2017/07/09
 
