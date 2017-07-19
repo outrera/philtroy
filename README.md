@@ -32,26 +32,6 @@ ISSUES:
 Updates:
 =======
 
-Replace testcube with actual meshes imported from Blender
-flip through relies and selecting with keyboard
-Implement schoolbag, calendar and map UI´s
-Implement day/night cycle functionality
-Implement event system
-implement dialogue paging for long dialogue texts
-implement save/load system
-implement start menu
-implement scene switching
-more cleanup and reorganizing, as always...
-MAYBE:
-
-code my own dialogue editor. Writing json manually gets heavy after awhile, and I can´t find a dialogue editor that fits me
-ISSUES:
-
-NPCs should remember previous dialogues
-Make sure that UI dialogues are really blocking
-how to store character properties?
-Updates:
-
 2017/07/16
 
 Implemented simple turn and move towards functionality.
