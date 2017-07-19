@@ -6,6 +6,7 @@ Disclaimer: THIS IS A VERY BAREBONES GAME PROTYPE RIGHT NOW. DON`T DOWNLOAD THIS
 
 Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
+This Trello board is updated more frequently, if you want to track progress towards next release:
 https://trello.com/b/MLCxDdmA/philemon-troy-and-the-student-body-pageant-roadmap
 
 TODO:
