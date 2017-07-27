@@ -11,11 +11,9 @@ https://trello.com/b/MLCxDdmA/philemon-troy-and-the-student-body-pageant-roadmap
 
 TODO:
 - Replace testcube with actual meshes imported from Blender
-- ~~flip through replies and selecting with keyboard~~
 - Implement schoolbag, calendar and map UI´s
 - Implement day/night cycle functionality
 - Implement event system
-- implement dialogue paging for long dialogue texts 
 - implement save/load system
 - implement start menu
 - implement scene switching
@@ -32,6 +30,23 @@ ISSUES:
 
 Updates:
 =======
+
+2017/07/27
+
+The last week has been spent (apart from a weekend on the French riviera:)extracting the dialogue system used in PhilTroy, expanding and modularizing it (for easier reutilization in other games) and putting it back into PhilTroy. The end result is called "Ape´s Dynamic Dialogue System" (or ADDS for short) This is an important step, which at first glance doesn´t seem all that significant, but the new features of this system are:
+
+- NPCs remember what they´ve talked about before
+- You can flip through replies and select reply with the keyboard
+- You can alter game variables through dialogue choices
+- Dialogue paging allows for longer dialogues
+- custom talk animations per dialogue
+- custom backgrounds per dialogue
+- all dialogue functionality moved to its own script
+- code was cleaned up for better readability
+
+You can check the junkheap repository > extended dialogue system for full feature list.
+
+ADDS will be made into a plugin, but that´s for later.
 
 2017/07/16
 
