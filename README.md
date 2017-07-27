@@ -44,6 +44,10 @@ The last week has been spent (apart from a weekend on the French riviera:)extrac
 - all dialogue functionality moved to its own script
 - code was cleaned up for better readability
 
+also
+
+- added screen shader effect that blurs background when running dialogue, tres kool :)
+
 You can check the junkheap repository > extended dialogue system for full feature list.
 
 ADDS will be made into a plugin, but that´s for later.
