@@ -1,21 +1,21 @@
 extends StaticBody
 
 signal look_at(a)
-signal dialogue(a,b)
+signal dialogue(a,b,c)
+
+var identity = {"dialogue": "res://dialogue/ellie.json", "branch": "a", "name": "ellie"}
 
 func _ready():
 	pass
 
 func _on_npc_trigger_mouse_enter():
-	emit_signal("look_at", "this is an NPC")
-
-func _on_npc_trigger_mouse_exit():
-	emit_signal("look_at", "")
+	print("mousing")
 
 func _on_npc_trigger_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
 		if event.is_pressed():
-			emit_signal("dialogue", "res://dialogue/ellie_start.json","a")
+			print("NPC")
+			emit_signal("dialogue", identity.dialogue, identity.branch, identity.name)
 
-	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
-		emit_signal("look_at", "This NPC is sexy as f-ck!")
+func _on_npc_trigger_mouse_exit():
+	pass # replace with function body

@@ -1,0 +1,57 @@
+{
+	"name": "Ellie",
+	"background": "background.png",
+	"dialogue": {
+		"a": {
+			"animation": "res://asset scenes/NPC2_talkanim.tscn",
+			"text" : ["this is dialogue A"],
+			"replies" : [
+				{
+				"next": "b",
+				"reply": "goto B",
+				"exit": "false"
+				},
+				{
+				"next": "c",
+				"reply": "Goto C",
+				"exit": "false"
+				},		
+				{
+				"next": "a",
+				"reply": "exit dialogue",
+				"exit": "true"
+				}
+				]
+		},
+		"b": {
+			"text" : ["this is dialogue B"],
+			"replies" : [
+				{
+				"next": "c",
+				"reply": "goto C",
+				"exit": "false"
+				}
+			]	
+		},
+		"c": {
+			"text" : ["this is dialogue C"],
+			"replies" : [
+				{
+				"next": "a",
+				"reply": "goto A",
+				"exit": "false"
+				}
+			]	
+		},
+		"d": {
+			"text" : ["this is dialogue D"],
+			"replies" : [
+				{
+				"next": "b",
+				"reply": "goto B",
+				"exit": "false"
+				}
+			]	
+		}		
+	}
+}
