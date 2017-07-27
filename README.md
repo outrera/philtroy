@@ -6,9 +6,12 @@ Disclaimer: THIS IS A VERY BAREBONES GAME PROTYPE RIGHT NOW. DON`T DOWNLOAD THIS
 
 Will not work on Godot 3.0! Tested and playing fine with 2.3 and 2.4 beta.
 
+This Trello board is updated more frequently, if you want to track progress towards next release:
+https://trello.com/b/MLCxDdmA/philemon-troy-and-the-student-body-pageant-roadmap
+
 TODO:
 - Replace testcube with actual meshes imported from Blender
-- flip through relies and selecting with keyboard
+- ~~flip through replies and selecting with keyboard~~
 - Implement schoolbag, calendar and map UI´s
 - Implement day/night cycle functionality
 - Implement event system
@@ -24,37 +27,16 @@ MAYBE:
 ISSUES:
 - NPCs should remember previous dialogues
 - Make sure that UI dialogues are really blocking
-- how to store character properties?
-
+- how to store character properties? #pending merge of extended dialogue system
 
 
 Updates:
 =======
 
-Replace testcube with actual meshes imported from Blender
-flip through relies and selecting with keyboard
-Implement schoolbag, calendar and map UI´s
-Implement day/night cycle functionality
-Implement event system
-implement dialogue paging for long dialogue texts
-implement save/load system
-implement start menu
-implement scene switching
-more cleanup and reorganizing, as always...
-MAYBE:
-
-code my own dialogue editor. Writing json manually gets heavy after awhile, and I can´t find a dialogue editor that fits me
-ISSUES:
-
-NPCs should remember previous dialogues
-Make sure that UI dialogues are really blocking
-how to store character properties?
-Updates:
-
 2017/07/16
 
 Implemented simple turn and move towards functionality.
-still some polishing needed. Player should move towards NPC before talking. If mouseclick is too close to player, player won´t play fully. Turn speed should be relative to distance to target (with min and max speeds), and if close to target, player should turn without moving. Not hard to do, just need to take the time.
+still some polishing needed. Player should move towards NPC before talking. ~~Turn speed should be relative to distance to target (with min and max speeds), and if close to target, player should turn without moving~~. Not hard to do, just need to take the time.
 
 2017/07/09
 
