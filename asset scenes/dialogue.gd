@@ -22,6 +22,8 @@ var replyContainer = []
 var replyMouseover = "FALSE"
 var replyCurrent = -1
 
+var mousePos = Vector3()
+
 var gameVars = {"milk": 0, "cookies": 0, "event": {"name": "start", "stage": 1}}
 
 func _ready():
@@ -29,7 +31,6 @@ func _ready():
 	
 	for object in get_parent().get_node("npcs").get_children():
 		object.connect("dialogue", self, "_talk_to")
-		print("connected")
 		
 func event_handler():
 	if gameVars.event.name == "Milk and cookies":
@@ -67,10 +68,10 @@ func _dialogue_clicked():
 	if pageIndex == numDialogueText-1 and numReplies == 0:
 		kill_dialogue()
 
-func _talk_to(dialogue, branch, name):
-	print("talking")
+func _talk_to(dialogue, branch, name, clickPos):
 	npcDialogue = {"name": name,"dialogue": dialogue, "branch": branch}
 	get_parent().get_node("blurfx").show()
+	mousePos = clickPos
 	start_dialogue(npcDialogue)
 
 func _pick_reply(n):
@@ -86,9 +87,6 @@ func _pick_reply(n):
 				gameVars[name] += talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
 			else:
 				gameVars[name] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
-		#print how many milk and cookies you have, mostly for debugging
-		print("You have: " + str(gameVars.milk) + " milk")
-		print("You have: " + str(gameVars.cookies) + " cookies")
 		
 	#if there is a progression array in json, update game progression variables
 	if talkData["dialogue"][npcDialogue["branch"]]["replies"][n].has("progression"):
@@ -107,7 +105,6 @@ func _pick_reply(n):
 		pageIndex = 0
 		npcDialogue["branch"] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["next"]
 		get_parent().get_node("npcs/" + npcDialogue.name.to_lower()).identity = {"dialogue": "res://dialogue/"  + npcDialogue.name.to_lower() + ".json", "branch": npcDialogue.branch, "name": npcDialogue.name}
-		print(npcDialogue["branch"])
 		get_parent().get_node("blurfx").hide()
 		kill_dialogue()
 

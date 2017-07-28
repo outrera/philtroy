@@ -31,6 +31,12 @@ ISSUES:
 Updates:
 =======
 
+2017/07/28
+
+- Moved all player script functions to player.gd from world.gd, further modularizing the game
+- Cleaned up code, renamed "ui_elements" node to just "ui"
+- created global.gd to handle higher level game functions, like quitting game/calling game menu (for now)
+
 2017/07/27
 
 The last week has been spent (apart from a weekend on the French riviera:)extracting the dialogue system used in PhilTroy, expanding and modularizing it (for easier reutilization in other games) and putting it back into PhilTroy. The end result is called "Ape´s Dynamic Dialogue System" (or ADDS for short) This is an important step, which at first glance doesn´t seem all that significant, but the new features of this system are:
@@ -43,10 +49,6 @@ The last week has been spent (apart from a weekend on the French riviera:)extrac
 - custom backgrounds per dialogue
 - all dialogue functionality moved to its own script
 - code was cleaned up for better readability
-
-also
-
-- added screen shader effect that blurs background when running dialogue, tres kool :)
 
 You can check the junkheap repository > extended dialogue system for full feature list.
 
