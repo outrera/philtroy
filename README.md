@@ -31,11 +31,18 @@ ISSUES:
 Updates:
 =======
 
+2017/07/29
+
+Sanitized scene panel and world.gd script
+- renamed nodes to better reflect their function
+- grouped nodes under appropriate container 
+- went through world.gd and renamed variables to follow camel case convention.
+
 2017/07/28
 
 - Moved all player script functions to player.gd from world.gd, further modularizing the game
 - Cleaned up code, renamed "ui_elements" node to just "ui"
-- created global.gd to handle higher level game functions, like quitting game/calling game menu (for now)
+- created global.gd to handle higher level game functions, like quitting game/calling game menu/scene switching (for now)
 
 2017/07/27
 

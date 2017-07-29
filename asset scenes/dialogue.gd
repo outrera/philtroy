@@ -70,7 +70,7 @@ func _dialogue_clicked():
 
 func _talk_to(dialogue, branch, name, clickPos):
 	npcDialogue = {"name": name,"dialogue": dialogue, "branch": branch}
-	get_parent().get_node("blurfx").show()
+	get_parent().get_node("effects/blurfx").show()
 	mousePos = clickPos
 	start_dialogue(npcDialogue)
 
@@ -105,7 +105,7 @@ func _pick_reply(n):
 		pageIndex = 0
 		npcDialogue["branch"] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["next"]
 		get_parent().get_node("npcs/" + npcDialogue.name.to_lower()).identity = {"dialogue": "res://dialogue/"  + npcDialogue.name.to_lower() + ".json", "branch": npcDialogue.branch, "name": npcDialogue.name}
-		get_parent().get_node("blurfx").hide()
+		get_parent().get_node("effects/blurfx").hide()
 		kill_dialogue()
 
 func _reply_mouseover(mouseover, reply):
