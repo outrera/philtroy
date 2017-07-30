@@ -11,7 +11,7 @@
 [ext_resource path="res://graphics/schoolbag.png" type="Texture" id=9]
 [ext_resource path="res://graphics/mobile.png" type="Texture" id=10]
 [ext_resource path="res://graphics/map.png" type="Texture" id=11]
-[ext_resource path="res://graphics/calendar.png" type="Texture" id=12]
+[ext_resource path="res://graphics/calendar_checked.png" type="Texture" id=12]
 [ext_resource path="res://asset scenes/calendar_UI.tscn" type="PackedScene" id=13]
 [ext_resource path="res://asset scenes/schoolbag_UI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://asset scenes/map_ui.tscn" type="PackedScene" id=15]
@@ -453,7 +453,6 @@ _update_shape_index = 0
 "UI_icons",
 ]]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 11 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1821.16, 1004 )

@@ -13,6 +13,8 @@ var phoneOpen = false
 
 var day = 0
 var time = 0
+var month = 6
+var monthDays = 1
 
 #get some nodes for easy access
 onready var effectHoverUI = get_node("effects/tween")
@@ -53,11 +55,11 @@ func _input(event):
 			hide_ui_icons()
 			ui_hide_show(get_node("ui/ui_phone"), Vector2(0,-1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
 			
-	if hoverNode and hoverNode.get_name() == "calendar":	
-		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
-			noMoveOnClick = true
-			hide_ui_icons()
-			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
+#	if hoverNode and hoverNode.get_name() == "calendar":	
+#		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
+#			noMoveOnClick = true
+#			hide_ui_icons()
+#			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	if hoverNode and hoverNode.get_name() == "schoolbag":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
@@ -70,6 +72,23 @@ func _input(event):
 			noMoveOnClick = true
 			hide_ui_icons()
 			ui_hide_show(get_node("ui/map_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
+	
+	if hoverNode and hoverNode.get_name() == "calendar":	
+		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
+			time += 1
+			if time == 4:
+				time = 0
+				day +=1
+				monthDays += 1
+				if day == 7:
+					day = 0
+				if monthDays > 30:
+					monthDays = 1
+					month += 1
+					if month > 12:
+						month = 0
+				
+			get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
 
 #the below functions handle hover animations for UI icons. This could probably be handled more efficiently in one generic function, not sure how
 func _on_phone_mouse_enter():

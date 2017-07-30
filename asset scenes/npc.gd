@@ -3,6 +3,7 @@ extends StaticBody
 signal look_at(a)
 signal dialogue(a,b,c)
 
+#will just carry character name, all other data will be moved to charData in global.gd
 var identity = {"dialogue": "res://dialogue/ellie.json", "branch": "a", "name": "ellie"}
 
 func _ready():

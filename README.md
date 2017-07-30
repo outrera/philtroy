@@ -36,6 +36,9 @@ Updates:
 prepared for day/night cycle functionality
 - added "day", "month", "weekday", and "time" to gameData, which I moved to global.gd
 - date label now dynamically updates with gametime progression
+- click on calendar to progress time. Nothing happens, for now, except date label updating
+
+created charData dictionary to hold json and branch info of all characters. Not hooked up to dialogue.gd yet..
 
 started working on schoolbag and map UI. Just placeholder graphics and they won´t exit on esc yet..
 

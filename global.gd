@@ -37,6 +37,18 @@ var gameData = {
 	
 var tempData = {}
 
+var charData = {
+	"nellie": {
+	"dialogue": "res://dialogue/ellie.json", 
+	"branch": "a"},
+	"bobby": {
+	"dialogue": "res://dialogue/bobby.json", 
+	"branch": "a"},
+	"sam": {
+	"dialogue": "res://dialogue/sam.json", 
+	"branch": "a"}
+	}
+
 func _ready():
 	set_process(true)
 
