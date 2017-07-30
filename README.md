@@ -31,7 +31,21 @@ ISSUES:
 Updates:
 =======
 
+2017/07/30
+
+prepared for day/night cycle functionality
+- added "day", "month", "weekday", and "time" to gameData, which I moved to global.gd
+- date label now dynamically updates with gametime progression
+
+started working on schoolbag and map UI. Just placeholder graphics and they won´t exit on esc yet..
+
+also moved load_json() func to global.gd as it won´t be used by the dialogue script only
+
 2017/07/29
+
+Implemented 
+- start and settings menu
+- scene switching
 
 Sanitized scene panel and world.gd script
 - renamed nodes to better reflect their function
@@ -81,16 +95,6 @@ version 0.0.2 alpha
 
 First alpha, let´s call it v0.0.1 :)
 Very basic functionality, and placeholder graphics (or programmer art if you will;)
-
-created a start_dialogue() function and moved over everything from load_json() that had nothing to do with actually loading a json (I might want to use it for other things tha dialogue...).
-started implementing RMB look at-functionality
-created a kill_dialogue() function since functionality is used more than once
-finished converting Player, NPC´s and objects to instanced asset scenes
-ESC to exit Phone UI and restore UI icons
-General code cleanup and reorganizing
-2017/07/08
-
-First alpha, let´s call it v0.0.1 :) Very basic functionality, and placeholder graphics (or programmer art if you will;)
 
 Features:
 

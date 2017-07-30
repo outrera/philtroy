@@ -24,8 +24,6 @@ var replyCurrent = -1
 
 var mousePos = Vector3()
 
-var gameVars = {"milk": 0, "cookies": 0, "event": {"name": "start", "stage": 1}}
-
 func _ready():
 	set_process_input(true)
 	
@@ -33,8 +31,8 @@ func _ready():
 		object.connect("dialogue", self, "_talk_to")
 		
 func event_handler():
-	if gameVars.event.name == "Milk and cookies":
-		if gameVars.event.stage == 1:
+	if global.gameData.event.name == "Milk and cookies":
+		if global.gameData.event.stage == 1:
 			pass
 
 func _input(event):
@@ -81,12 +79,12 @@ func _pick_reply(n):
 	if talkData["dialogue"][npcDialogue["branch"]]["replies"][n].has("variables"):
 		for item in range(0, talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"].size()):
 			var name = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["name"]
-			gameVars[name] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
+			global.gameData[name] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
 			#if value is a float or an int, add to existing value
 			if (typeof(talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"])) == 2:
-				gameVars[name] += talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
+				global.gameData[name] += talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
 			else:
-				gameVars[name] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
+				global.gameData[name] = talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["variables"][item]["value"]
 		
 	#if there is a progression array in json, update game progression variables
 	if talkData["dialogue"][npcDialogue["branch"]]["replies"][n].has("progression"):
@@ -117,7 +115,7 @@ func _reply_mouseover(mouseover, reply):
 		replyCurrent = -1
 
 func start_dialogue(json):
-	load_json(json, "dialogue")
+	talkData = global.load_json(json, "dialogue")
 	npcName = talkData["name"]
 	if talkData["dialogue"][npcDialogue["branch"]].has("animation"):
 		talkAnim = talkData["dialogue"][npcDialogue["branch"]]["animation"]
@@ -145,12 +143,6 @@ func start_dialogue(json):
 		for n in range(0,numReplies):
 			replyContainer.push_back("ui_dialogue/reply" + str(n+1))
 			get_node("ui_dialogue/reply" + str(n+1)).set_text(talkData["dialogue"][npcDialogue["branch"]]["replies"][n]["reply"])
-		
-func load_json(json, type):
-	var file = File.new();
-	file.open(json["dialogue"], File.READ);
-	talkData.parse_json(file.get_as_text())
-	file.close()
 		
 func setup_dialogue_window():
 		
