@@ -488,8 +488,6 @@ transform/pos = Vector2( 223.631, 1083.05 )
 
 [node name="npcs" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="ellie" parent="npcs" instance=ExtResource( 16 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44846, 1.70829, 12.5515 )

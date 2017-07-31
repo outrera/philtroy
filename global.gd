@@ -38,7 +38,7 @@ var gameData = {
 var tempData = {}
 
 var charData = {
-	"nellie": {
+	"ellie": {
 	"dialogue": "res://dialogue/ellie.json", 
 	"branch": "a"},
 	"bobby": {
@@ -58,12 +58,12 @@ func _process(delta):
 	if Input.is_action_pressed("ui_quit"):
 		get_tree().quit()
 
-func load_json(json, type):
+func load_json(json):
 	var file = File.new()
-	file.open(json["dialogue"], File.READ)
+	file.open(json, File.READ)
 	tempData.parse_json(file.get_as_text())
 	return tempData
-	file.close()
+#	file.close()
 
 func goto_scene(scene):
     get_tree().change_scene("res://"+scene)

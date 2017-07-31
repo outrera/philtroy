@@ -31,6 +31,18 @@ ISSUES:
 Updates:
 =======
 
+2017/07/31
+
+Finished transferring NPCdialogue to global.charData
+spent an hour chasing down a bug related to trying to set NPC identity data that wasn´t there...
+
+next, make time progression actually do something, ie
+- reload scene with data from location.json (which characters present, position, dialogue, branch)
+
+next challenge (which I should have thought about)
+- npcs should have different dialogues depending on time of day, meaning global.charData["dialogue"]
+should be a 4 item array. Needs to be referenced correctly in dialogue.gd as well.. 
+
 2017/07/30
 
 prepared for day/night cycle functionality

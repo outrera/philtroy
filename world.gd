@@ -29,8 +29,8 @@ func _ready():
 	set_process_input(true)
 	for object in get_node("objects").get_children():
 		object.connect("look_at", self, "_look_at")
-#	for object in get_node("npcs").get_children():
-#		object.connect("dialogue", self, "_talk_to")
+	for object in get_node("npcs").get_children():
+		object.connect("look_at", self, "_look_at")
 	get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
 
 func _process(delta):
@@ -54,12 +54,6 @@ func _input(event):
 			phoneOpen = true
 			hide_ui_icons()
 			ui_hide_show(get_node("ui/ui_phone"), Vector2(0,-1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
-			
-#	if hoverNode and hoverNode.get_name() == "calendar":	
-#		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
-#			noMoveOnClick = true
-#			hide_ui_icons()
-#			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	if hoverNode and hoverNode.get_name() == "schoolbag":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
@@ -72,6 +66,12 @@ func _input(event):
 			noMoveOnClick = true
 			hide_ui_icons()
 			ui_hide_show(get_node("ui/map_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
+	
+	if hoverNode and hoverNode.get_name() == "calendar":	
+		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
+			noMoveOnClick = true
+			hide_ui_icons()
+			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	if hoverNode and hoverNode.get_name() == "calendar":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
