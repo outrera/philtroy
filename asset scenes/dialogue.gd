@@ -6,6 +6,10 @@ extends Node2D
 var npcDialogue = {}
 var talkData = {}
 
+var dialogue = {}
+var branch = {}
+var replies = {}
+
 onready var dialogPanel = load("res://asset scenes/dialogue_window.tscn")
 onready var replyButton = load("res://asset scenes/reply.tscn")
 
@@ -78,32 +82,32 @@ func _pick_reply(n):
 	replyCurrent =-1
 	
 	#if there is a variables array in json, update game variables
-	if talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n].has("variables"):
-		for item in range(0, talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["variables"].size()):
-			var name = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["variables"][item]["name"]
-			global.gameData[npc] = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["variables"][item]["value"]
+	if replies[n].has("variables"):
+		for item in range(0, replies[n]["variables"].size()):
+			var name = replies[n]["variables"][item]["name"]
+			global.gameData[npc] = replies[n]["variables"][item]["value"]
 			#if value is a float or an int, add to existing value
-			if (typeof(talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["variables"][item]["value"])) == 2:
-				global.gameData[npc] += talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["variables"][item]["value"]
+			if (typeof(replies[n]["variables"][item]["value"])) == 2:
+				global.gameData[npc] += replies[n]["variables"][item]["value"]
 			else:
-				global.gameData[npc] = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["variables"][item]["value"]
+				global.gameData[npc] = replies[n]["variables"][item]["value"]
 		
 	#if there is a progression array in json, update game progression variables
-	if talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n].has("progression"):
-		for item in range(0, talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["progression"].size()):
-			var affected = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["progression"][item]["affected"]
-			get_node("npcs/" + affected).identity.branch = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["progression"][item]["branch"]
+	if replies[n].has("progression"):
+		for item in range(0, replies[n]["progression"].size()):
+			var affected = replies[n]["progression"][item]["affected"]
+			get_node("npcs/" + affected).identity.branch = replies[n]["progression"][item]["branch"]
 	
 	#if "exit" is "false" take value from "next" and start next dialogue
-	if talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["exit"] != "true":
-		global.charData[npc]["branch"] = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["next"]
+	if replies[n]["exit"] != "true":
+		global.charData[npc]["branch"] = replies[n]["next"]
 		pageIndex = 0
 		start_dialogue(global.charData[npc]["dialogue"])
 	
 	#if "exit" is "true", kill dialogue
 	else:
 		pageIndex = 0
-		global.charData[npc]["branch"] = talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["next"]
+		global.charData[npc]["branch"] = replies[n]["next"]
 		get_parent().get_node("effects/blurfx").hide()
 		kill_dialogue()
 
@@ -117,15 +121,20 @@ func _reply_mouseover(mouseover, reply):
 
 func start_dialogue(json):
 	talkData = global.load_json(json)
+	
+	branch = talkData["dialogue"][global.charData[npc]["branch"]]
+	replies = talkData["dialogue"][global.charData[npc]["branch"]]["replies"]
+	
 	npcName = talkData["name"]
-	if talkData["dialogue"][global.charData[npc]["branch"]].has("animation"):
-		talkAnim = talkData["dialogue"][global.charData[npc]["branch"]]["animation"]
+	
+	if branch.has("animation"):
+		talkAnim = branch["animation"]
 
-	numDialogueText = talkData["dialogue"][global.charData[npc]["branch"]]["text"].size()
+	numDialogueText = branch["text"].size()
 	
 	#if branch has responses, check how many. If no responses, numReplies is 0
-	if talkData["dialogue"][global.charData[npc]["branch"]].has("replies"):
-		numReplies = talkData["dialogue"][global.charData[npc]["branch"]]["replies"].size()
+	if branch.has("replies"):
+		numReplies = replies.size()
 	else:
 		#needed to add this otherwise paging didn´t work like it should
 		replyMouseover = "FALSE"
@@ -138,12 +147,12 @@ func start_dialogue(json):
 	get_node("ui_dialogue/dialogue/name").set_text(npcName)
 	
 	#preparing for dialogue paging, the 0 will be replaced by ´n´, ´n´ being order of item in text array
-	get_node("ui_dialogue/dialogue").set_text(talkData["dialogue"][global.charData[npc]["branch"]]["text"][pageIndex])
+	get_node("ui_dialogue/dialogue").set_text(branch["text"][pageIndex])
 	
 	if pageIndex == numDialogueText-1 and numReplies > 0:
 		for n in range(0,numReplies):
 			replyContainer.push_back("ui_dialogue/reply" + str(n+1))
-			get_node("ui_dialogue/reply" + str(n+1)).set_text(talkData["dialogue"][global.charData[npc]["branch"]]["replies"][n]["reply"])
+			get_node("ui_dialogue/reply" + str(n+1)).set_text(replies[n]["reply"])
 		
 func setup_dialogue_window():
 		

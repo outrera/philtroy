@@ -6,15 +6,15 @@
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_morning_idle.scn",
-					"position": {
-						"x": "200",
-						"y": "280",
-						"rot": 90
-					}
+					"pos": {"x": 200,"y": 280,"z": 90}
+					"rot": {"x": 200,"y": 280,"z": 90}
 				},
 				"bobby": {
-					"dialogue": "",
-					"branch": ""
+					"dialogue": "bobby_start.json",
+					"branch": "a"
+					"pose": "bobby_morning_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90}
+					"rot": {"x": 200,"y": 280,"z": 90}
 				}
 			}
 		},

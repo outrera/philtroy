@@ -34,7 +34,15 @@ Updates:
 2017/07/31
 
 Finished transferring NPCdialogue to global.charData
+
 spent an hour chasing down a bug related to trying to set NPC identity data that wasn´t there...
+
+Sanitized dialogue.gd by creating two container vars for common dictionary searches
+
+branch = talkData["dialogue"][global.charData[npc]["branch"]]
+replies = talkData["dialogue"][global.charData[npc]["branch"]]["replies"]
+
+Looks a lot less convoluted now
 
 next, make time progression actually do something, ie
 - reload scene with data from location.json (which characters present, position, dialogue, branch)
