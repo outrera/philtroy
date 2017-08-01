@@ -31,6 +31,11 @@ ISSUES:
 Updates:
 =======
 
+2017/08/01
+
+Major (long overdue) reorganization of nodes and folder structure. Tedious job that needed to be done to make
+future additions easier. With this, I think I can get back to implementing the day/night cycle functionality.
+
 2017/07/31
 
 Finished transferring NPCdialogue to global.charData

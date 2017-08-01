@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://graphics/map_placeholder.png" type="Texture" id=1]
+[ext_resource path="res://data/graphics/map_placeholder.jpg" type="Texture" id=1]
 
 [node name="Area2D" type="Area2D"]
 

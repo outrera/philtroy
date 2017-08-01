@@ -33,19 +33,20 @@ var gameData = {
 		"evening",
 		"night"
 	], 
-	"event": {"name": "start", "stage": 1}}
+	"event": {"name": "start", "stage": 1},
+	"scene": "schoolyard.tscn"}
 	
 var tempData = {}
 
 var charData = {
 	"ellie": {
-	"dialogue": "res://dialogue/ellie.json", 
+	"dialogue": "res://data/dialogue/ellie.json", 
 	"branch": "a"},
 	"bobby": {
-	"dialogue": "res://dialogue/bobby.json", 
+	"dialogue": "res://data/dialogue/bobby.json", 
 	"branch": "a"},
 	"sam": {
-	"dialogue": "res://dialogue/sam.json", 
+	"dialogue": "res://data/dialogue/sam.json", 
 	"branch": "a"}
 	}
 

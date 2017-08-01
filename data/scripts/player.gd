@@ -56,6 +56,10 @@ func turn_towards():
 
 
 func _on_Area_input_event( camera, event, click_pos, click_normal, shape_idx ):
+	pass
+
+
+func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	if !blocking_ui:
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and no_move_on_click == false:
 			is_moving = true

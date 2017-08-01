@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=1]
+[gd_scene load_steps=33 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://data/graphics/white.png" type="Texture" id=2]
-[ext_resource path="res://data/scripts/ui.gd" type="Script" id=3]
-[ext_resource path="res://data/fonts/segoe.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://data/fonts/segoe.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://data/graphics/phone_ui.png" type="Texture" id=4]
 [ext_resource path="res://data/graphics/char1.png" type="Texture" id=5]
 [ext_resource path="res://data/graphics/char2.png" type="Texture" id=6]
 [ext_resource path="res://data/graphics/char3.png" type="Texture" id=7]
@@ -12,15 +12,14 @@
 [ext_resource path="res://data/graphics/mobile.png" type="Texture" id=10]
 [ext_resource path="res://data/graphics/map.png" type="Texture" id=11]
 [ext_resource path="res://data/graphics/calendar_checked.png" type="Texture" id=12]
-[ext_resource path="res://data/asset scenes/phone_ui.tscn" type="PackedScene" id=13]
-[ext_resource path="res://data/asset scenes/schoolbag_UI.tscn" type="PackedScene" id=14]
-[ext_resource path="res://data/asset scenes/map_ui.tscn" type="PackedScene" id=15]
-[ext_resource path="res://data/asset scenes/calendar_UI.tscn" type="PackedScene" id=16]
-[ext_resource path="res://data/npcs/ellie.tscn" type="PackedScene" id=17]
-[ext_resource path="res://data/asset scenes/object.tscn" type="PackedScene" id=18]
+[ext_resource path="res://asset scenes/calendar_UI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://asset scenes/schoolbag_UI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://asset scenes/map_ui.tscn" type="PackedScene" id=15]
+[ext_resource path="res://data/npcs/ellie.tscn" type="PackedScene" id=16]
+[ext_resource path="res://asset scenes/object.tscn" type="PackedScene" id=17]
+[ext_resource path="res://asset scenes/dialogue.tscn" type="PackedScene" id=18]
 [ext_resource path="res://data/asset scenes/player.tscn" type="PackedScene" id=19]
 [ext_resource path="res://data/scripts/player.gd" type="Script" id=20]
-[ext_resource path="res://data/asset scenes/dialogue.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Environment" id=1]
 
@@ -170,8 +169,6 @@ v_offset = 0.0
 
 [node name="effects" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="tween" type="Tween" parent="effects"]
 
 playback/process_mode = 1
@@ -199,7 +196,6 @@ stretch_mode = 0
 
 [node name="ui" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -208,7 +204,6 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
-script/script = ExtResource( 3 )
 
 [node name="dateLabel" type="Label" parent="ui"]
 
@@ -220,7 +215,7 @@ margin/left = 13.0
 margin/top = 5.0
 margin/right = 335.0
 margin/bottom = 67.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.550763, 0.538559, 0.761719, 1 )
 text = "Monday, 8 AM"
 percent_visible = 1.0
@@ -237,7 +232,7 @@ margin/left = 1764.0
 margin/top = 7.0
 margin/right = 1857.0
 margin/bottom = 69.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 text = "240"
 percent_visible = 1.0
 lines_skipped = 0
@@ -253,14 +248,26 @@ margin/left = 18.0
 margin/top = 1015.0
 margin/right = 177.0
 margin/bottom = 1077.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="ui_phone" type="Area2D" parent="ui"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Sprite" type="Sprite" parent="ui/ui_phone"]
+
+transform/pos = Vector2( 961.087, 1855.43 )
+texture = ExtResource( 4 )
+
 [node name="char1" type="Area2D" parent="ui"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1566.89, 148.554 )
 input/pickable = true
 shapes/0/shape = SubResource( 4 )
@@ -285,7 +292,6 @@ _update_shape_index = 0
 
 [node name="char2" type="Area2D" parent="ui"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1137, 263 )
 input/pickable = true
 shapes/0/shape = SubResource( 5 )
@@ -310,7 +316,6 @@ _update_shape_index = 0
 
 [node name="char3" type="Area2D" parent="ui"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1070, 351 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )
@@ -335,7 +340,6 @@ _update_shape_index = 0
 
 [node name="settings" type="Area2D" parent="ui"]
 
-editor/display_folded = true
 transform/pos = Vector2( 1144, 484 )
 input/pickable = true
 shapes/0/shape = SubResource( 7 )
@@ -362,7 +366,6 @@ _update_shape_index = 0
 "UI_icons",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 235, 536 )
 input/pickable = true
 shapes/0/shape = SubResource( 8 )
@@ -389,7 +392,6 @@ _update_shape_index = 0
 "UI_icons",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 319, 473 )
 input/pickable = true
 shapes/0/shape = SubResource( 9 )
@@ -416,7 +418,6 @@ _update_shape_index = 0
 "UI_icons",
 ]]
 
-editor/display_folded = true
 transform/pos = Vector2( 550, 407 )
 input/pickable = true
 shapes/0/shape = SubResource( 10 )
@@ -443,7 +444,6 @@ _update_shape_index = 0
 "UI_icons",
 ]]
 
-editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 11 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 1821.16, 1004 )
@@ -465,26 +465,21 @@ shape = SubResource( 11 )
 trigger = true
 _update_shape_index = 0
 
-[node name="phone_ui" parent="ui" instance=ExtResource( 13 )]
+[node name="calendar_ui" parent="ui" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 265.562, 1088.95 )
 
 [node name="schoolbag_ui" parent="ui" instance=ExtResource( 14 )]
 
-transform/pos = Vector2( 666.235, 1087.7 )
+transform/pos = Vector2( 670.894, 1087.7 )
 
 [node name="map_ui" parent="ui" instance=ExtResource( 15 )]
 
-transform/pos = Vector2( 209.654, 1078.39 )
-transform/scale = Vector2( 1.5, 1.6 )
-
-[node name="calendar_ui" parent="ui" instance=ExtResource( 16 )]
-
-transform/pos = Vector2( 274.88, 1083.05 )
+transform/pos = Vector2( 223.631, 1083.05 )
 
 [node name="npcs" type="Node" parent="."]
 
-editor/display_folded = true
-
-[node name="npc" parent="npcs" instance=ExtResource( 17 )]
+[node name="npc" parent="npcs" instance=ExtResource( 16 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90123, 1.70829, 8.27804 )
 
@@ -492,13 +487,17 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90123, 1.70829, 8.278
 
 editor/display_folded = true
 
-[node name="object" parent="objects" instance=ExtResource( 18 )]
+[node name="object" parent="objects" instance=ExtResource( 17 )]
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.122, 1.70829, 0 )
+editor/display_folded = true
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4299, 1.70829, -1.33639 )
+
+[node name="dialogue" parent="." instance=ExtResource( 18 )]
+
+editor/display_folded = true
 
 [node name="scene" type="Area" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555074, 0 )
 input/ray_pickable = true
@@ -549,7 +548,6 @@ geometry/baked_light_tex_id = 0
 
 [node name="player" parent="." instance=ExtResource( 19 )]
 
-editor/display_folded = true
 script/script = ExtResource( 20 )
 
 [node name="geometry" parent="player"]
@@ -559,8 +557,6 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 [node name="CollisionShape" parent="player"]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-
-[node name="dialogue" parent="." instance=ExtResource( 21 )]
 
 [connection signal="mouse_enter" from="ui/schoolbag" to="." method="_on_schoolbag_mouse_enter"]
 
@@ -581,5 +577,5 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 [connection signal="input_event" from="scene" to="player" method="_on_scene_input_event"]
 
 
-[editable path="player"]
 [editable path="dialogue"]
+[editable path="player"]

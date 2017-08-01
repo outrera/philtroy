@@ -16,6 +16,8 @@ var time = 0
 var month = 6
 var monthDays = 1
 
+var sceneData = {}
+
 #get some nodes for easy access
 onready var effectHoverUI = get_node("effects/tween")
 onready var effectToggleUI = get_node("effects/tween")
@@ -27,11 +29,22 @@ func _ready():
 	set_process(true)
 	set_fixed_process(true)
 	set_process_input(true)
+	
 	for object in get_node("objects").get_children():
 		object.connect("look_at", self, "_look_at")
 	for object in get_node("npcs").get_children():
 		object.connect("look_at", self, "_look_at")
+		
 	get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
+	
+	sceneData = global.load_json("res://data/locations/location_school.json")
+	load_scene()
+	
+func load_scene():
+	#check what time of day/day
+	#load settings for that time
+	#instance npcs and objects accordingly 
+	pass
 
 func _process(delta):
 	#if dialogue is running and we press ui_exit, exit dialogue and delete dialogue nodes
@@ -41,7 +54,7 @@ func _process(delta):
 		if phoneOpen == true:	
 			noMoveOnClick = false #works same as blocking_ui, unify
 			phoneOpen = false
-			ui_hide_show(get_node("ui/ui_phone"), Vector2(0,1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			ui_hide_show(get_node("ui/phone_ui"), Vector2(0,1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
 			unhide_ui_icons()
 
 func _fixed_process(delta):
@@ -53,7 +66,7 @@ func _input(event):
 			noMoveOnClick = true
 			phoneOpen = true
 			hide_ui_icons()
-			ui_hide_show(get_node("ui/ui_phone"), Vector2(0,-1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			ui_hide_show(get_node("ui/phone_ui"), Vector2(0,-1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	if hoverNode and hoverNode.get_name() == "schoolbag":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():

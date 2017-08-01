@@ -1,0 +1,520 @@
+{
+	"monday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	},
+	"tuesday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	},
+	"wednesday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	},
+	"thursday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	},
+	"friday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	},
+	"saturday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	},
+	"sunday":{
+		"morning": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"noon": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"evening":{
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		},
+		"night": {
+			"actors": {
+				"nellie": {
+					"dialogue": "nellie_start.json",
+					"branch": "a",
+					"pose": "nellie_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				},
+				"bobby": {
+					"dialogue": "bobby_start.json",
+					"branch": "a",
+					"pose": "bobby_idle.scn",
+					"pos": {"x": 200,"y": 280,"z": 90},
+					"rot": {"x": 200,"y": 280,"z": 90}
+				}
+			}
+		}
+	}
+}

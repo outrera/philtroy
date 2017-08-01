@@ -10,8 +10,8 @@ var dialogue = {}
 var branch = {}
 var replies = {}
 
-onready var dialogPanel = load("res://asset scenes/dialogue_window.tscn")
-onready var replyButton = load("res://asset scenes/reply.tscn")
+onready var dialogPanel = load("res://data/asset scenes/dialogue_window.tscn")
+onready var replyButton = load("res://data/asset scenes/reply.tscn")
 
 onready var VIEWSIZE = get_viewport().get_rect().size
 var dialog = {"width": 1000, "height": 60, "posx": 500, "posy": 370}
@@ -179,7 +179,7 @@ func setup_dialogue_window():
 			get_node("ui_dialogue/reply" + str(n+1)).num_reply = n
 			reply_offset += 30
 	
-	talkAnim = load("res://asset scenes/" + npcName + "_talkanim.tscn")
+	talkAnim = load("res://data/npcs/" + npcName + "_talkanim.tscn")
 	talkAnim = talkAnim.instance()
 	talkAnim.set_scale(Vector2(1.5,1.5))
 	talkAnim.set_pos(Vector2(VIEWSIZE.x/2 + 40 - dialog.width/2, VIEWSIZE.y - dialog.posy + 20))
