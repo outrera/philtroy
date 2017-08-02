@@ -31,6 +31,13 @@ ISSUES:
 Updates:
 =======
 
+2017/08/02
+
+Finally got the day/night cycle functionality working. When clicking on the calendar, NPCs and Objects (will) appear
+in positions based on *location*.json
+I´m sure some bug will creep up, but so far it looks good. Currently doesn´t really do much since *location*.json values
+are mostly copied from day to day, but Ellie will move position going from morning to noon, so - working good enough! ;P
+
 2017/08/01
 
 Major (long overdue) reorganization of nodes and folder structure. Tedious job that needed to be done to make

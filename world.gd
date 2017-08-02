@@ -29,22 +29,18 @@ func _ready():
 	set_process(true)
 	set_fixed_process(true)
 	set_process_input(true)
+		
+	get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
+	
+	sceneData = global.load_json("res://data/locations/location_schoolyard.json")
+	global.load_scene("schoolyard")
 	
 	for object in get_node("objects").get_children():
 		object.connect("look_at", self, "_look_at")
 	for object in get_node("npcs").get_children():
 		object.connect("look_at", self, "_look_at")
-		
-	get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
-	
-	sceneData = global.load_json("res://data/locations/location_school.json")
-	load_scene()
-	
-func load_scene():
-	#check what time of day/day
-	#load settings for that time
-	#instance npcs and objects accordingly 
-	pass
+	for object in get_node("npcs").get_children():
+		object.connect("dialogue", get_node("dialogue"), "_talk_to")
 
 func _process(delta):
 	#if dialogue is running and we press ui_exit, exit dialogue and delete dialogue nodes
@@ -100,6 +96,13 @@ func _input(event):
 					month += 1
 					if month > 12:
 						month = 0
+			global.day = global.gameData["weekday"][day]
+			global.time = global.gameData["time"][time]
+			print("loading again!")
+			global.load_scene("schoolyard")
+			
+			for object in get_node("npcs").get_children():
+				object.connect("dialogue", get_node("dialogue"), "_talk_to")
 				
 			get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
 

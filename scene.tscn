@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=1]
+[gd_scene load_steps=35 format=1]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://data/graphics/white.png" type="Texture" id=2]
@@ -18,9 +18,10 @@
 [ext_resource path="res://data/asset scenes/calendar_UI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://data/npcs/ellie.tscn" type="PackedScene" id=17]
 [ext_resource path="res://data/asset scenes/object.tscn" type="PackedScene" id=18]
-[ext_resource path="res://data/asset scenes/player.tscn" type="PackedScene" id=19]
-[ext_resource path="res://data/scripts/player.gd" type="Script" id=20]
-[ext_resource path="res://data/asset scenes/dialogue.tscn" type="PackedScene" id=21]
+[ext_resource path="res://data/locations/schoolyard.tscn" type="PackedScene" id=19]
+[ext_resource path="res://data/asset scenes/player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://data/scripts/player.gd" type="Script" id=21]
+[ext_resource path="res://data/asset scenes/dialogue.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Environment" id=1]
 
@@ -482,8 +483,6 @@ transform/pos = Vector2( 274.88, 1083.05 )
 
 [node name="npcs" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="npc" parent="npcs" instance=ExtResource( 17 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90123, 1.70829, 8.27804 )
@@ -498,7 +497,6 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.122, 1.70829, 0 )
 
 [node name="scene" type="Area" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555074, 0 )
 input/ray_pickable = true
@@ -528,29 +526,12 @@ shape = SubResource( 12 )
 trigger = true
 _update_shape_index = 0
 
-[node name="ground" type="TestCube" parent="scene"]
+[node name="schoolyard" parent="scene" instance=ExtResource( 19 )]
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.555074, 0 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-
-[node name="player" parent="." instance=ExtResource( 19 )]
+[node name="player" parent="." instance=ExtResource( 20 )]
 
 editor/display_folded = true
-script/script = ExtResource( 20 )
+script/script = ExtResource( 21 )
 
 [node name="geometry" parent="player"]
 
@@ -560,7 +541,7 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 
-[node name="dialogue" parent="." instance=ExtResource( 21 )]
+[node name="dialogue" parent="." instance=ExtResource( 22 )]
 
 [connection signal="mouse_enter" from="ui/schoolbag" to="." method="_on_schoolbag_mouse_enter"]
 

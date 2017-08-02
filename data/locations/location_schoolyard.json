@@ -2,51 +2,37 @@
 	"monday":{
 		"morning": {
 			"actors": {
-				"nellie": {
-					"dialogue": "nellie_start.json",
+				"ellie": {
+					"dialogue": "res://data/dialogue/ellie.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
-					"pos": {"x": 200,"y": 280,"z": 90},
-					"rot": {"x": 200,"y": 280,"z": 90}
-				},
-				"bobby": {
-					"dialogue": "bobby_start.json",
-					"branch": "a",
-					"pose": "bobby_idle.scn",
-					"pos": {"x": 200,"y": 280,"z": 90},
+					"pos": {"x": -6,"y": 1.5,"z": -2},
 					"rot": {"x": 200,"y": 280,"z": 90}
 				}
 			}
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
-					"dialogue": "nellie_start.json",
+				"ellie": {
+					"dialogue": "res://data/dialogue/ellie.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
-					"pos": {"x": 200,"y": 280,"z": 90},
-					"rot": {"x": 200,"y": 280,"z": 90}
-				},
-				"bobby": {
-					"dialogue": "bobby_start.json",
-					"branch": "a",
-					"pose": "bobby_idle.scn",
-					"pos": {"x": 200,"y": 280,"z": 90},
+					"pos": {"x": -7,"y": 1.5,"z": -3},
 					"rot": {"x": 200,"y": 280,"z": 90}
 				}
 			}
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
-					"dialogue": "nellie_start.json",
+				"ellie": {
+					"dialogue": "ellie.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
 					"pos": {"x": 200,"y": 280,"z": 90},
 					"rot": {"x": 200,"y": 280,"z": 90}
 				},
 				"bobby": {
-					"dialogue": "bobby_start.json",
+					"dialogue": "bobby.json",
 					"branch": "a",
 					"pose": "bobby_idle.scn",
 					"pos": {"x": 200,"y": 280,"z": 90},
@@ -56,15 +42,15 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
-					"dialogue": "nellie_start.json",
+				"ellie": {
+					"dialogue": "ellie.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
 					"pos": {"x": 200,"y": 280,"z": 90},
 					"rot": {"x": 200,"y": 280,"z": 90}
 				},
 				"bobby": {
-					"dialogue": "bobby_start.json",
+					"dialogue": "bobby.json",
 					"branch": "a",
 					"pose": "bobby_idle.scn",
 					"pos": {"x": 200,"y": 280,"z": 90},
@@ -76,8 +62,8 @@
 	"tuesday":{
 		"morning": {
 			"actors": {
-				"nellie": {
-					"dialogue": "nellie_start.json",
+				"ellie": {
+					"dialogue": "ellie.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
 					"pos": {"x": 200,"y": 280,"z": 90},
@@ -94,7 +80,7 @@
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -112,7 +98,7 @@
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -130,7 +116,7 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -150,7 +136,7 @@
 	"wednesday":{
 		"morning": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -168,7 +154,7 @@
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -186,7 +172,7 @@
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -204,7 +190,7 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -224,7 +210,7 @@
 	"thursday":{
 		"morning": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -242,7 +228,7 @@
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -260,7 +246,7 @@
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -278,7 +264,7 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -298,7 +284,7 @@
 	"friday":{
 		"morning": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -316,7 +302,7 @@
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -334,7 +320,7 @@
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -352,7 +338,7 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -372,7 +358,7 @@
 	"saturday":{
 		"morning": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -390,7 +376,7 @@
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -408,7 +394,7 @@
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -426,7 +412,7 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -446,7 +432,7 @@
 	"sunday":{
 		"morning": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -464,7 +450,7 @@
 		},
 		"noon": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -482,7 +468,7 @@
 		},
 		"evening":{
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
@@ -500,7 +486,7 @@
 		},
 		"night": {
 			"actors": {
-				"nellie": {
+				"ellie": {
 					"dialogue": "nellie_start.json",
 					"branch": "a",
 					"pose": "nellie_idle.scn",
