@@ -9,7 +9,6 @@ var isRotating = false
 var noMoveOnClick = false
 var blockingUI = false
 var dialogueRunning = false
-var phoneOpen = false
 
 var day = 0
 var time = 0
@@ -25,7 +24,30 @@ onready var descriptionLabel = get_node("ui/descriptionLabel")
 
 onready var viewsize = get_viewport().get_rect().size
 
+var phoneOpen = false
+var schoolbagOpen = false
+var mapOpen = false
+var calendarOpen = false
+
+onready var phoneHidePos
+onready var phoneShowPos
+onready var schoolbagHidePos = get_node("ui/schoolbag_ui").get_pos()
+onready var schoolbagShowPos
+onready var mapHidePos
+onready var mapShowPos
+onready var calendarHidePos
+onready var calendarShowPos
+
 func _ready():
+
+	schoolbagShowPos = schoolbagHidePos - Vector2(0, 1000)
+	phoneHidePos = get_node("ui/phone_ui").get_pos()
+	phoneShowPos = phoneHidePos - Vector2(0, 1310)	
+	mapHidePos = get_node("ui/map_ui").get_pos()
+	mapShowPos = mapHidePos - Vector2(0, 1000)
+	calendarHidePos = get_node("ui/calendar_ui").get_pos()
+	calendarShowPos =  calendarHidePos - Vector2(0, 1000)
+	
 	set_process(true)
 	set_fixed_process(true)
 	set_process_input(true)
@@ -48,9 +70,28 @@ func _process(delta):
 		if dialogueRunning == true:
 			kill_dialogue()
 		if phoneOpen == true:	
-			noMoveOnClick = false #works same as blocking_ui, unify
+			global.blocking_ui = false
 			phoneOpen = false
-			ui_hide_show(get_node("ui/phone_ui"), Vector2(0,1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			var positionDelta = phoneHidePos - get_node("ui/phone_ui").get_pos()
+			ui_hide_show(get_node("ui/phone_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			unhide_ui_icons()
+		if schoolbagOpen == true:	
+			global.blocking_ui = false
+			schoolbagOpen = false
+			var positionDelta = schoolbagHidePos - get_node("ui/schoolbag_ui").get_pos()
+			ui_hide_show(get_node("ui/schoolbag_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			unhide_ui_icons()
+		if mapOpen == true:	
+			global.blocking_ui = false
+			mapOpen = false
+			var positionDelta = mapHidePos - get_node("ui/map_ui").get_pos()
+			ui_hide_show(get_node("ui/map_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+			unhide_ui_icons()
+		if calendarOpen == true:	
+			global.blocking_ui = false
+			calendarOpen = false
+			var positionDelta = calendarHidePos - get_node("ui/calendar_ui").get_pos()
+			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
 			unhide_ui_icons()
 
 func _fixed_process(delta):
@@ -59,27 +100,31 @@ func _fixed_process(delta):
 func _input(event):
 	if hoverNode and hoverNode.get_name() == "phone":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
-			noMoveOnClick = true
+			global.blocking_ui = true
 			phoneOpen = true
 			hide_ui_icons()
-			ui_hide_show(get_node("ui/phone_ui"), Vector2(0,-1310), Tween.TRANS_QUAD, Tween.EASE_OUT)
-	
+			var positionDelta = get_node("ui/phone_ui").get_pos() - phoneShowPos
+			ui_hide_show(get_node("ui/phone_ui"), Vector2(-positionDelta), Tween.TRANS_QUAD, Tween.EASE_OUT)
 	if hoverNode and hoverNode.get_name() == "schoolbag":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
-			noMoveOnClick = true
+			global.blocking_ui = true
+			schoolbagOpen = true
 			hide_ui_icons()
+			var positionDelta = get_node("ui/phone_ui").get_pos() - schoolbagShowPos
 			ui_hide_show(get_node("ui/schoolbag_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
-	
 	if hoverNode and hoverNode.get_name() == "map":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
-			noMoveOnClick = true
+			global.blocking_ui = true
+			mapOpen = true
 			hide_ui_icons()
+			var positionDelta = get_node("ui/phone_ui").get_pos() - mapShowPos
 			ui_hide_show(get_node("ui/map_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
-	
 	if hoverNode and hoverNode.get_name() == "calendar":	
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
-			noMoveOnClick = true
+			global.blocking_ui = true
+			calendarOpen = true
 			hide_ui_icons()
+			var positionDelta = get_node("ui/phone_ui").get_pos() - calendarShowPos
 			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 	
 	if hoverNode and hoverNode.get_name() == "calendar":	

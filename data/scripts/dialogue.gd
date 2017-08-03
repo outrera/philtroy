@@ -14,7 +14,7 @@ onready var dialogPanel = load("res://data/asset scenes/dialogue_window.tscn")
 onready var replyButton = load("res://data/asset scenes/reply.tscn")
 
 onready var VIEWSIZE = get_viewport().get_rect().size
-var dialog = {"width": 1000, "height": 60, "posx": 500, "posy": 370}
+var dialogBox = {"width": 1000, "height": 60, "posx": 500, "posy": 370}
 
 var npcName
 var talkAnim
@@ -72,10 +72,10 @@ func _dialogue_clicked():
 		kill_dialogue()
 
 func _talk_to(identity, clickPos):
-#	npcDialogue = {"name": name,"dialogue": dialogue, "branch": branch}
-	get_parent().get_node("effects/blurfx").show()
 	mousePos = clickPos
 	npc = identity
+	global.blocking_ui = true
+	get_parent().get_node("effects/blurfx").show()
 	start_dialogue(global.charData[npc]["dialogue"])
 
 func _pick_reply(n):
@@ -165,28 +165,28 @@ func setup_dialogue_window():
 		
 	create_labels(labels)
 	
-	get_node("ui_dialogue/panel").set_size(Vector2(dialog.width, dialog.height + numReplies*30))
-	get_node("ui_dialogue/panel").set_pos(Vector2(VIEWSIZE.x/2 - dialog.width/2, VIEWSIZE.y - dialog.posy))
+	get_node("ui_dialogue/panel").set_size(Vector2(dialogBox.width, dialogBox.height + numReplies*30))
+	get_node("ui_dialogue/panel").set_pos(Vector2(VIEWSIZE.x/2 - dialogBox.width/2, VIEWSIZE.y - dialogBox.posy))
 	get_node("ui_dialogue/panel").set_opacity(0.5)
 	
-	get_node("ui_dialogue/dialogue").set_size(Vector2(dialog.width -20, dialog.height + numReplies*30))
-	get_node("ui_dialogue/dialogue").set_pos(Vector2(VIEWSIZE.x/2 + 100 - dialog.width/2, VIEWSIZE.y - dialog.posy + 20))
+	get_node("ui_dialogue/dialogue").set_size(Vector2(dialogBox.width -20, dialogBox.height + numReplies*30))
+	get_node("ui_dialogue/dialogue").set_pos(Vector2(VIEWSIZE.x/2 + 100 - dialogBox.width/2, VIEWSIZE.y - dialogBox.posy + 20))
 	
 	if pageIndex == numDialogueText-1 and numReplies > 0:
 		for n in range(numReplies):
 			get_node("ui_dialogue/reply" + str(n+1)).set_size(Vector2(400, 50))
-			get_node("ui_dialogue/reply" + str(n+1)).set_pos(Vector2(VIEWSIZE.x/2 +100 - dialog.width/2, VIEWSIZE.y - 300 + reply_offset))
+			get_node("ui_dialogue/reply" + str(n+1)).set_pos(Vector2(VIEWSIZE.x/2 +100 - dialogBox.width/2, VIEWSIZE.y - 300 + reply_offset))
 			get_node("ui_dialogue/reply" + str(n+1)).num_reply = n
 			reply_offset += 30
 	
 	talkAnim = load("res://data/npcs/" + npcName + "_talkanim.tscn")
 	talkAnim = talkAnim.instance()
 	talkAnim.set_scale(Vector2(1.5,1.5))
-	talkAnim.set_pos(Vector2(VIEWSIZE.x/2 + 40 - dialog.width/2, VIEWSIZE.y - dialog.posy + 20))
+	talkAnim.set_pos(Vector2(VIEWSIZE.x/2 + 40 - dialogBox.width/2, VIEWSIZE.y - dialogBox.posy + 20))
 	get_node("ui_dialogue").add_child(talkAnim)
 
 	reply_offset = 0
-
+ 
 func create_labels(labels):
 	kill_dialogue()
 	for lbl in labels:
@@ -212,5 +212,4 @@ func kill_dialogue():
 		x.set_name("DELETED") #to make sure node doesn´t cause issues before being deleted
 		x.queue_free()
 	replyContainer = []
-
-	
+	global.blocking_ui = false

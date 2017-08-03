@@ -1,20 +1,14 @@
 extends KinematicBody
 
 var value = 0
-var curpos
-var startpos
 var direction
 var player_speed = 7
 var click_pos
-var distance_to_target
 
 #flags/states
 var is_moving = false
 var isRotating = false
 var no_move_on_click = false
-var blocking_ui = false
-var dialogue_running = false
-var phone_opened = false
 	
 onready var player = self
 onready var target = Vector3(0,0,0)
@@ -38,7 +32,7 @@ func _fixed_process(delta):
 	if isRotating:
 		pass
 	if is_moving:
-		if !blocking_ui:
+		if !global.blocking_ui:
 			turn_towards()
 			if player_pos.distance_to(target_pos) > 3:
 				player.move(playerFacing*get_fixed_process_delta_time()*3)
@@ -60,8 +54,8 @@ func _on_Area_input_event( camera, event, click_pos, click_normal, shape_idx ):
 
 
 func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
-	if !blocking_ui:
-		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and no_move_on_click == false:
+	if !global.blocking_ui:
+		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and global.blocking_ui == false:
 			is_moving = true
 			value = 0 
 			player_pos = player.get_global_transform().origin

@@ -6,6 +6,8 @@ var time
 var tempData = {}
 var sceneData = {}
 
+var blocking_ui = false
+
 #let´s make this a json loaded at ready, so as to not clutter the script
 var gameData = {
 	"milk": 0, 

@@ -200,7 +200,6 @@ stretch_mode = 0
 
 [node name="ui" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -530,7 +529,6 @@ _update_shape_index = 0
 
 [node name="player" parent="." instance=ExtResource( 20 )]
 
-editor/display_folded = true
 script/script = ExtResource( 21 )
 
 [node name="geometry" parent="player"]

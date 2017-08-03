@@ -31,6 +31,13 @@ ISSUES:
 Updates:
 =======
 
+2017/08/03
+
+all submenus now go away on ESC.
+made submenu UIs blocking, so game freezes when submenus are showing
+changes in dialogue.gd, dialog is now dialogBox which is more descriptive
+found out that I´m being kicked out of apartment, yay...
+
 2017/08/02
 
 Finally got the day/night cycle functionality working. When clicking on the calendar, NPCs and Objects (will) appear
