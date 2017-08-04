@@ -31,11 +31,17 @@ func _fixed_process(delta):
 	#move and rotate player towards set target
 	if isRotating:
 		pass
-	if is_moving:
+	if global.is_moving:
 		if !global.blocking_ui:
 			turn_towards()
+			#TODO: this kinda works, but not 100%. This should only be compared to on click distance to target, not all the time
+			#TODO: also, if player has already turned towards target, turn_towards shouldn´t run. Causing glitches....
+			#TODO: probably easily solved by running a timer on each move/rotate, no turn takes more than 1.5 secs
 			if player_pos.distance_to(target_pos) > 3:
 				player.move(playerFacing*get_fixed_process_delta_time()*3)
+			if player_pos.distance_to(target_pos) < 0.5:
+				global.is_moving = false
+				print("stop")
 
 func turn_towards():
 	var t = player.get_transform()
@@ -48,15 +54,13 @@ func turn_towards():
 	helper_pos = helper.get_global_transform().origin	
 	playerFacing = (helper_pos - player_pos).normalized()
 
-
-func _on_Area_input_event( camera, event, click_pos, click_normal, shape_idx ):
-	pass
-
+#func _on_Area_input_event( camera, event, click_pos, click_normal, shape_idx ):
+#	pass
 
 func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	if !global.blocking_ui:
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and global.blocking_ui == false:
-			is_moving = true
+			global.is_moving = true
 			value = 0 
 			player_pos = player.get_global_transform().origin
 			helper_pos = helper.get_global_transform().origin

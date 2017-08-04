@@ -8,7 +8,7 @@ var identity = "ellie"
 
 func _ready():
 	pass
-
+	
 func _on_npc_trigger_mouse_enter():
 	emit_signal("look_at", identity)
 
