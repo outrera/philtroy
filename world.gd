@@ -59,6 +59,9 @@ func _ready():
 	sceneData = global.load_json(global.scene)
 	global.load_scene("schoolyard")
 	
+	connect()
+	
+func connect():
 	for object in get_node("objects").get_children():
 		object.connect("look_at", self, "_look_at")
 	for object in get_node("npcs").get_children():
@@ -146,8 +149,7 @@ func _input(event):
 				print("loading again!")
 				global.load_scene("schoolyard")
 				
-				for object in get_node("npcs").get_children():
-					object.connect("dialogue", get_node("dialogue"), "_talk_to")
+				connect()
 					
 				get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
 
@@ -181,7 +183,7 @@ func _on_calendar_mouse_enter():
 	hoverNode = get_node("ui/calendar")
 		
 func _on_calendar_mouse_exit():
-	ui_hover("calendar", get_node("ui/calendar/Sprite"), Vector2(1.0, 1.0), false)
+	ui_hover("", get_node("ui/calendar/Sprite"), Vector2(1.0, 1.0), false)
 	hoverNode = null
 
 #play effects when hovering over UI icons
@@ -193,7 +195,7 @@ func ui_hover(name, gui_node, scale, move):
 
 #hide or show UI icons when calling blocking UI elements, like phone, map or schoolbag
 func ui_hide_show(gui_node, move_delta, method1, method2):
-	effectToggleUI.interpolate_property (gui_node, "transform/pos", gui_node.get_pos(), gui_node.get_pos() + move_delta, 1, method1, method2)
+	effectToggleUI.interpolate_property (gui_node, "transform/pos", gui_node.get_pos(), gui_node.get_pos() + move_delta, 0.5, method1, method2)
 	effectToggleUI.start()
 
 func toggle_ui_icons(toggle):
