@@ -171,8 +171,6 @@ v_offset = 0.0
 
 [node name="effects" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="tween" type="Tween" parent="effects"]
 
 playback/process_mode = 1
