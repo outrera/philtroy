@@ -102,6 +102,7 @@ func _process(delta):
 func _input(event):
 	if hoverNode:
 		if hoverNode.get_name() == "phone":	
+			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 				global.blocking_ui = true
 				phoneOpen = true
@@ -109,6 +110,7 @@ func _input(event):
 				var positionDelta = get_node("ui/phone_ui").get_pos() - phoneShowPos
 				ui_hide_show(get_node("ui/phone_ui"), Vector2(-positionDelta), Tween.TRANS_QUAD, Tween.EASE_OUT)
 		if hoverNode.get_name() == "schoolbag":	
+			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 				global.blocking_ui = true
 				schoolbagOpen = true
@@ -116,6 +118,7 @@ func _input(event):
 				var positionDelta = get_node("ui/phone_ui").get_pos() - schoolbagShowPos
 				ui_hide_show(get_node("ui/schoolbag_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 		if hoverNode.get_name() == "map":	
+			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 				global.blocking_ui = true
 				mapOpen = true
@@ -123,6 +126,7 @@ func _input(event):
 				var positionDelta = get_node("ui/phone_ui").get_pos() - mapShowPos
 				ui_hide_show(get_node("ui/map_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 		if hoverNode.get_name() == "calendar":	
+			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
 				global.blocking_ui = true
 				calendarOpen = true
@@ -131,6 +135,7 @@ func _input(event):
 				ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 		
 		if hoverNode.get_name() == "calendar":	
+			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 				time += 1
 				if time == 4:

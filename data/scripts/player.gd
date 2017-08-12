@@ -59,6 +59,7 @@ func turn_towards():
 
 func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	if !global.blocking_ui:
+		#for Godot 3.0 use if(event is InputEventMouseButton)
 		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and global.blocking_ui == false:
 			global.is_moving = true
 			value = 0 
