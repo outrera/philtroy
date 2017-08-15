@@ -1,0 +1,26 @@
+{
+	"event": "date_ellie",
+	"type": "oneoff"
+	"time" : {
+		"day": "friday"
+		"timeOfDay": "evening"
+	},
+	"remove": {
+		"actor": {
+			"all": {
+				"from": "coffeeshop"
+			}
+		}
+	},
+	"add": {
+		"actor": {
+			"ellie": {
+				"to": "coffeeshop",
+				"model": "ellie_date,
+				"animation": "ellie_date",
+				"dialogue": "ellie_date",
+			}
+		}
+	},
+	"after" : "default"
+}

@@ -13,7 +13,7 @@ var dialogueRunning = false
 var day = 0
 var time = 0
 var month = 6
-var monthDays = 1
+var dayOfMonth = 1
 
 var sceneData = {}
 
@@ -147,21 +147,27 @@ func _input(event):
 		if hoverNode.get_name() == "calendar":	
 			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
+				#keep track of day, week and month
+				#TODO: game will have 30 day months, calendar will have 5 week rows (35 days)
+				#TODO: so, when a new month, figure out which is first slot in calendar
+				#TODO: only days with an event spawn an event object, and an event object can be clicked on to bring up more info
+				#TODO: on the day of an event, an event notifier pops up to the right, which you can click and see the calendar
+				#TODO: for this to work from one month to another, we need a last week buffer, that carries over to next month
+				#TODO: create a gameEvent dictionary, with a starting set of fixed events, like prom night
 				time += 1
 				if time == 4:
 					time = 0
 					day +=1
-					monthDays += 1
+					dayOfMonth += 1
 					if day == 7:
 						day = 0
-					if monthDays > 30:
-						monthDays = 1
+					if dayOfMonth > 30:
+						dayOfMonth = 1
 						month += 1
 						if month > 12:
 							month = 0
 				global.day = global.gameData["weekday"][day]
 				global.time = global.gameData["time"][time]
-				print("loading again!")
 				global.load_scene("schoolyard")
 				
 				connect()

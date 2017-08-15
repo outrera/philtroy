@@ -31,6 +31,30 @@ ISSUES:
 Updates:
 =======
 
+2017/08/16
+
+Preparations toward event system
+
+Been hard to focus, having to look for a new apartment. Luckily I was ahead of schedule before, so..
+
+Alot of small changes in code, since my anxiety made it hard to work on bigger tasks. I did have the energy to think bout the upcoming events system though,
+and a good json structure for what I want to do.
+
+Basically events system will be based on different types of json files, with default values and overrides which can also be modified by relationship to characters. 
+I think this makes for a dynamic system without making it too complex, but we´ll see when I try to actually make this work well in the gamecode...
+
+- new events folder
+- all events have their own json
+- events can be one-offs or persistent
+- each character has 5 default dialogues, depending on relationship value in charData
+- charData holds default character dialogues
+- locationData can override default dialogue
+- eventData holds info on events that override default dialogue in both charData and locationData
+- events can then change default dialogue (and other stuff in game, of course) depending on outcome
+
+all this is still very much preliminary and might be changed, although I think it´s mostly in place. NOTHING IS HOOKED UP TO GAMECODE YET, though. This is all prep work.
+That will be the task for this weekend.
+
 2017/08/03
 
 all submenus now go away on ESC.

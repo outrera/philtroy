@@ -46,16 +46,21 @@ var gameData = {
 	"event": {"name": "start", "stage": 1},
 	"scene": "schoolyard.tscn"}
 
+var gameEvents = {}
+
 var charData = {
 	"ellie": {
 	"dialogue": "res://data/dialogue/ellie.json", 
-	"branch": "a"},
+	"branch": "a",
+	"relationship": "2"},
 	"bobby": {
 	"dialogue": "res://data/dialogue/bobby.json", 
-	"branch": "a"},
+	"branch": "a",
+	"relationship": "2"},
 	"sam": {
 	"dialogue": "res://data/dialogue/sam.json", 
-	"branch": "a"}
+	"branch": "a",
+	"relationship": "2"}
 	}
 
 var locations = [
@@ -110,21 +115,27 @@ func load_scene(name):
 	if location.has("actors"):
 		for name in location["actors"].keys():
 			var pos = location["actors"][name]["pos"]
-			global.charData[name]["dialogue"] = location["actors"][name]["dialogue"]
+			var rot = location["actors"][name]["rot"]
+			#TODO: think I might need to add a default dialogue to charData as well
+			if location["actors"][name]["dialogue"] != "default":
+				global.charData[name]["dialogue"] = location["actors"][name]["dialogue"]
 			var actor = load("res://data/npcs/" + name + ".tscn")
-			#pose > animation? For now use base animation.
+			#TODO: pose > animation? For now use base animation.
 			actor = actor.instance()
-			actor.set_translation(Vector3(pos.x,pos.y, pos.z))
+			actor.set_translation(Vector3(pos.x,pos.y,pos.z))
+			actor.set_rotation(Vector3(rot.x,rot.y, rot.z))
 			actor.set_name(name)
 			gameRoot.get_node("npcs").add_child(actor)
 
 	if location.has("objects"):
-		for object in location["objects"].keys():
-			var pos = location["objects"][object]["pos"]
+		for name in location["objects"].keys():
+			var pos = location["objects"][name]["pos"]
+			var rot = location["actors"][name]["rot"]
 			var object = load("res://data/objects/" + name + ".tscn")
 			object.set_pos(Vector3(pos.x, pos.y, pos.z))
+			object.set_rotation(Vector3(rot.x,rot.y, rot.z))
 			object.set_name(name)
 			get_node("objects").add_child(object)
 	
-	#animate scene transition somehow(time label swapped with animation?)
-	#how to handle scene specific cameras?
+	#TODO: animate scene transition somehow(time label swapped with animation?)
+	#TODO: how to handle scene specific cameras?

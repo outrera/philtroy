@@ -1,0 +1,10 @@
+{
+	"comment": "all events have their own json, dictating NPCs, objects and dialogue."
+	"comment2": "this only controls what´s displayed in calendar and event notifications. The actual events have their own jsons, which can be activated by dialogue or this json."
+	"date":{
+		"7": "party_laura",
+		"14": "party_sam",
+		"21": "party_bobby",
+		"28": "prom"
+	}
+}
