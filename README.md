@@ -35,6 +35,8 @@ Updates:
 
 more prepwork for events system:
 
+- add global.eventOverride
+- created charData temp cache in dialogue.gd, to be able to override charData without overwriting it
 - load gameEvents.json into global.eventData on ready
 - check if event or not when global.load_scene()
 

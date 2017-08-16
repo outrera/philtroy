@@ -27,10 +27,15 @@ var replyContainer = []
 var replyMouseover = "FALSE"
 var replyCurrent = -1
 
+var charData = {}
+
 var mousePos = Vector3()
 
 func _ready():
 	set_process_input(true)
+	
+	#we use a temp cache to be able to override charData without actually overwriting it
+	charData = global.charData
 	
 	for object in get_parent().get_node("npcs").get_children():
 		object.connect("dialogue", self, "_talk_to")
@@ -57,17 +62,17 @@ func _input(event):
 				_pick_reply(replyCurrent)
 			if pageIndex < numDialogueText-1:    
 				pageIndex += 1
-				start_dialogue(global.charData[npc]["dialogue"])
+				start_dialogue(charData[npc]["dialogue"])
 			if pageIndex < numDialogueText-1:    
 				pageIndex += 1
-				start_dialogue(global.charData[npc]["dialogue"])
+				start_dialogue(charData[npc]["dialogue"])
 			if pageIndex == numDialogueText-1 and numReplies == 0:
 				kill_dialogue()
 			
 func _dialogue_clicked():
 	if pageIndex < numDialogueText-1:    
 		pageIndex += 1
-		start_dialogue(global.charData[npc]["dialogue"])
+		start_dialogue(charData[npc]["dialogue"])
 	if pageIndex == numDialogueText-1 and numReplies == 0:
 		kill_dialogue()
 
@@ -76,7 +81,13 @@ func _talk_to(identity, clickPos):
 	npc = identity
 	global.blocking_ui = true
 	get_parent().get_node("effects/blurfx").show()
-	start_dialogue(global.charData[npc]["dialogue"])
+	#we use a temp cache to be able to override charData without actually overwriting it
+	#TODO_ put the override here, uncomment conditional code
+#	if global.eventOverride != npc:
+	charData = global.charData
+#	else:
+#		charData = global.eventOverride[npc]
+	start_dialogue(charData[npc]["dialogue"])
 
 func _pick_reply(n):
 	replyCurrent =-1
@@ -100,14 +111,14 @@ func _pick_reply(n):
 	
 	#if "exit" is "false" take value from "next" and start next dialogue
 	if replies[n]["exit"] != "true":
-		global.charData[npc]["branch"] = replies[n]["next"]
+		charData[npc]["branch"] = replies[n]["next"]
 		pageIndex = 0
-		start_dialogue(global.charData[npc]["dialogue"])
+		start_dialogue(charData[npc]["dialogue"])
 	
 	#if "exit" is "true", kill dialogue
 	else:
 		pageIndex = 0
-		global.charData[npc]["branch"] = replies[n]["next"]
+		charData[npc]["branch"] = replies[n]["next"]
 		get_parent().get_node("effects/blurfx").hide()
 		kill_dialogue()
 
@@ -122,8 +133,8 @@ func _reply_mouseover(mouseover, reply):
 func start_dialogue(json):
 	talkData = global.load_json(json)
 	
-	branch = talkData["dialogue"][global.charData[npc]["branch"]]
-	replies = talkData["dialogue"][global.charData[npc]["branch"]]["replies"]
+	branch = talkData["dialogue"][charData[npc]["branch"]]
+	replies = talkData["dialogue"][charData[npc]["branch"]]["replies"]
 	
 	npcName = talkData["name"]
 	

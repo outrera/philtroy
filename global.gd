@@ -6,6 +6,7 @@ var scene
 
 var tempData = {}
 var sceneData = {}
+var eventOverride = {}
 
 var blocking_ui = false
 var is_moving = false
