@@ -31,6 +31,15 @@ ISSUES:
 Updates:
 =======
 
+2017/08/17
+
+more prepwork for events system:
+
+- load gameEvents.json into global.eventData on ready
+- check if event or not when global.load_scene()
+
+I really think I need to get loading new scenes from map working before I continue, so I have something to work with
+
 2017/08/16
 
 Preparations toward event system
@@ -51,6 +60,8 @@ I think this makes for a dynamic system without making it too complex, but we´l
 - locationData can override default dialogue
 - eventData holds info on events that override default dialogue in both charData and locationData
 - events can then change default dialogue (and other stuff in game, of course) depending on outcome
+also
+- calendar json controls event notifier system that pops up to the left of the screen, and the calendar
 
 all this is still very much preliminary and might be changed, although I think it´s mostly in place. NOTHING IS HOOKED UP TO GAMECODE YET, though. This is all prep work.
 That will be the task for this weekend.

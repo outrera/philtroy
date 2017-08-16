@@ -46,7 +46,7 @@ var gameData = {
 	"event": {"name": "start", "stage": 1},
 	"scene": "schoolyard.tscn"}
 
-var gameEvents = {}
+var eventData = {}
 
 var charData = {
 	"ellie": {
@@ -70,9 +70,13 @@ var locations = [
 
 func _ready():
 	set_process(true)
+	
+	eventData = load_json("res://data/events/gameEvents.json")
+	print(eventData)
+	
 	for location in locations:
-		print("loading")
 		sceneData[location] = load_json("res://data/locations/location_" + location + ".json")
+
 	day = "monday"
 	time = "morning"
 
@@ -87,6 +91,7 @@ func load_json(json):
 	file.open(json, File.READ)
 	tempData.parse_json(file.get_as_text())
 	return tempData
+	tempData = null
 	file.close()
 	#for Godot 3.0
 #	var file = File.new()
@@ -136,6 +141,12 @@ func load_scene(name):
 			object.set_rotation(Vector3(rot.x,rot.y, rot.z))
 			object.set_name(name)
 			get_node("objects").add_child(object)
+	
+	#if today has event - override
+	if eventData["date"].has(str(gameData["day"])):
+		print("event")
+	else:
+		print("no event")
 	
 	#TODO: animate scene transition somehow(time label swapped with animation?)
 	#TODO: how to handle scene specific cameras?

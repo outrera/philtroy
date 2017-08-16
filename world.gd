@@ -166,6 +166,7 @@ func _input(event):
 						month += 1
 						if month > 12:
 							month = 0
+				global.gameData["day"] += 1
 				global.day = global.gameData["weekday"][day]
 				global.time = global.gameData["time"][time]
 				global.load_scene("schoolyard")
