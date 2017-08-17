@@ -12,24 +12,37 @@ https://trello.com/b/MLCxDdmA/philemon-troy-and-the-student-body-pageant-roadmap
 TODO:
 - Replace testcube with actual meshes imported from Blender
 - Implement schoolbag, calendar and map UI´s
-- Implement day/night cycle functionality
 - Implement event system
 - implement save/load system
-- implement start menu
-- implement scene switching
+
 - more cleanup and reorganizing, as always...
 
 MAYBE:
 - code my own dialogue editor. Writing json manually gets heavy after awhile, and I can´t find a dialogue editor that fits me
 
 ISSUES:
-- NPCs should remember previous dialogues
 - Make sure that UI dialogues are really blocking
-- how to store character properties? #pending merge of extended dialogue system
 
 
 Updates:
 =======
+
+2017/08/17 b (last update below was after midnight on the 16th:)
+
+even more prepwork for events system
+
+- store eventData in eventOverride
+- added items to gameEvents.json for cancelling or not not showing up for event, to enable repercussions
+- added global gameVars dictionary to hold variables affected by dialogue decisions
+- added conditional to replies in dialogue.gd to alter eventData
+- map_ui now emits a signal "exit_ui", which is emitted when clicking on a map item, closing the UI open
+- the above called for making a ui_exit() function in world.gd, as to not duplicate functionality
+
+NEXT is making map selection actually load a new scene. Event system groundwork is really starting to look more robust.
+It really helps giving this alot of thought beforehand, then again it might fail miserably as soon as I hook everything up...
+but I´m sure I´ll be able to fixt it up, if that happens.. I think :P
+
+all this is basically the result of a few boring hours at work :)
 
 2017/08/17
 

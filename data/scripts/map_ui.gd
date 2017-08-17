@@ -6,6 +6,8 @@ onready var map03 = get_node("map03/Sprite")
 
 onready var label = get_node("label")
 
+signal exit_ui()
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -22,7 +24,9 @@ func _on_map01_mouse_exit():
 	label.set_text("")
 
 func _on_map01_input_event( viewport, event, shape_idx ):
-	pass # replace with function body
+	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
+		print("exit_ui_01")
+		emit_signal("exit_ui")
 
 func _on_map02_mouse_enter():
 	map02.show()
@@ -34,7 +38,9 @@ func _on_map02_mouse_exit():
 	label.set_text("")
 
 func _on_map02_input_event( viewport, event, shape_idx ):
-	pass # replace with function body
+	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
+		print("exit_ui_02")
+		emit_signal("exit_ui")
 
 func _on_map03_mouse_enter():
 	map03.show()
@@ -46,4 +52,6 @@ func _on_map03_mouse_exit():
 	label.set_text("")
 
 func _on_map03_input_event( viewport, event, shape_idx ):
-	pass # replace with function body
+	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
+		print("exit_ui_03")
+		emit_signal("exit_ui")

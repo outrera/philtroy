@@ -61,6 +61,7 @@ func _ready():
 	sceneData = global.load_json(global.scene)
 	global.load_scene("schoolyard")
 	
+	get_node("ui/map_ui").connect("exit_ui", self, "ui_exit")
 	connect()
 	
 func connect():
@@ -74,36 +75,39 @@ func connect():
 func _process(delta):
 	#if dialogue is running and we press ui_exit, exit dialogue and delete dialogue nodes
 	if Input.is_action_pressed("ui_exit"):
-		if dialogueRunning == true:
-			kill_dialogue()
-		if phoneOpen == true:	
-			global.blocking_ui = false
-			phoneOpen = false
-			screenBlur.hide()
-			var positionDelta = phoneHidePos - get_node("ui/phone_ui").get_pos()
-			ui_hide_show(get_node("ui/phone_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
-			toggle_ui_icons("show")
-		if schoolbagOpen == true:	
-			global.blocking_ui = false
-			schoolbagOpen = false
-			screenBlur.hide()
-			var positionDelta = schoolbagHidePos - get_node("ui/schoolbag_ui").get_pos()
-			ui_hide_show(get_node("ui/schoolbag_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
-			toggle_ui_icons("show")
-		if mapOpen == true:	
-			global.blocking_ui = false
-			mapOpen = false
-			screenBlur.hide()
-			var positionDelta = mapHidePos - get_node("ui/map_ui").get_pos()
-			ui_hide_show(get_node("ui/map_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
-			toggle_ui_icons("show")
-		if calendarOpen == true:	
-			global.blocking_ui = false
-			calendarOpen = false
-			screenBlur.hide()
-			var positionDelta = calendarHidePos - get_node("ui/calendar_ui").get_pos()
-			ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
-			toggle_ui_icons("show")
+		ui_exit()
+
+func ui_exit():
+	if dialogueRunning == true:
+		kill_dialogue()
+	if phoneOpen == true:	
+		global.blocking_ui = false
+		phoneOpen = false
+		screenBlur.hide()
+		var positionDelta = phoneHidePos - get_node("ui/phone_ui").get_pos()
+		ui_hide_show(get_node("ui/phone_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+		toggle_ui_icons("show")
+	if schoolbagOpen == true:	
+		global.blocking_ui = false
+		schoolbagOpen = false
+		screenBlur.hide()
+		var positionDelta = schoolbagHidePos - get_node("ui/schoolbag_ui").get_pos()
+		ui_hide_show(get_node("ui/schoolbag_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+		toggle_ui_icons("show")
+	if mapOpen == true:	
+		global.blocking_ui = false
+		mapOpen = false
+		screenBlur.hide()
+		var positionDelta = mapHidePos - get_node("ui/map_ui").get_pos()
+		ui_hide_show(get_node("ui/map_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+		toggle_ui_icons("show")
+	if calendarOpen == true:	
+		global.blocking_ui = false
+		calendarOpen = false
+		screenBlur.hide()
+		var positionDelta = calendarHidePos - get_node("ui/calendar_ui").get_pos()
+		ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,positionDelta.y), Tween.TRANS_QUAD, Tween.EASE_OUT)
+		toggle_ui_icons("show")
 
 func _input(event):
 	if hoverNode:

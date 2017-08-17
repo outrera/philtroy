@@ -7,6 +7,13 @@ var scene
 var tempData = {}
 var sceneData = {}
 var eventOverride = {}
+var gameVars = {}
+#ex:
+#var gameVars = {
+#	"event": "non",
+#	"eventDay": 23,
+#	"eventTOD": "evening"
+#}
 
 var blocking_ui = false
 var is_moving = false
@@ -146,6 +153,7 @@ func load_scene(name):
 	#if today has event - override
 	if eventData["date"].has(str(gameData["day"])):
 		print("event")
+		eventOverride = load_json("events/" + eventData["date"][gameData["day"]]["name"] + ".json")
 	else:
 		print("no event")
 	

@@ -22,5 +22,7 @@
 			}
 		}
 	},
+	"noshow": "date_ellie_noshow",
+	"cancel": "date_ellie_cancel",
 	"after" : "default"
 }

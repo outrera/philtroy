@@ -20,5 +20,7 @@
 		"animation": "laura_apocalypse",
 		"dialogue": "laura_apocalypse",
 	}
+	"noshow": "none",
+	"cancel": "none",
 	"after" : "default"
 }

@@ -102,6 +102,11 @@ func _pick_reply(n):
 				global.gameData[npc] += replies[n]["variables"][item]["value"]
 			else:
 				global.gameData[npc] = replies[n]["variables"][item]["value"]
+		if replies[n]["variables"].has("event"):
+			global.eventData["date"][global.gameVars["eventDay"]]["name"] = replies[n]["variables"]["event"]
+			global.eventData["date"][global.gameVars["eventDay"]]["time"] = replies[n]["variables"]["eventTOD"]
+			global.eventData["date"][global.gameVars["eventDay"]]["fail"]["noshow"] = replies[n]["variables"]["noshow"]
+			global.eventData["date"][global.gameVars["eventDay"]]["fail"]["cancel"] = replies[n]["variables"]["cancel"]
 		
 	#if there is a progression array in json, update game progression variables
 	if replies[n].has("progression"):
