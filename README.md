@@ -27,6 +27,10 @@ ISSUES:
 Updates:
 =======
 
+2017/08/20
+
+Functional map UI (clicking on map location will load respective scene)
+
 2017/08/17 b (last update below was after midnight on the 16th:)
 
 even more prepwork for events system
