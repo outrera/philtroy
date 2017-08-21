@@ -79,6 +79,7 @@ func _process(delta):
 
 func map_location(a):
 	global.load_scene(a)
+	connect()
 	ui_exit()
 
 func ui_exit():

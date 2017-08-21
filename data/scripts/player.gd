@@ -2,7 +2,7 @@ extends KinematicBody
 
 var value = 0
 var direction
-var player_speed = 7
+var player_speed = 8
 var click_pos
 
 #flags/states
