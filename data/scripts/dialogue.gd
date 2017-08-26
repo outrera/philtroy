@@ -102,11 +102,27 @@ func _pick_reply(n):
 				global.gameData[npc] += replies[n]["variables"][item]["value"]
 			else:
 				global.gameData[npc] = replies[n]["variables"][item]["value"]
-		if replies[n]["variables"].has("event"):
-			global.eventData["date"][global.gameVars["eventDay"]]["name"] = replies[n]["variables"]["event"]
-			global.eventData["date"][global.gameVars["eventDay"]]["time"] = replies[n]["variables"]["eventTOD"]
-			global.eventData["date"][global.gameVars["eventDay"]]["fail"]["noshow"] = replies[n]["variables"]["noshow"]
-			global.eventData["date"][global.gameVars["eventDay"]]["fail"]["cancel"] = replies[n]["variables"]["cancel"]
+			
+	if replies[n].has("event"):
+		#what´s today(weekday)?
+		#what´s the day(weekday) of the event?
+		#how many days until that day(weekday)?
+		#add that number to global.gameData["day"]
+		#add:
+		var weekDayNum = {"monday": 1, "tuesday": 2, "wednesday": 3, "thursday": 4, "friday": 5, "saturday": 6, "sunday": 7}
+		
+		var currentDay = weekDayNum[global.gameData["weekday"][global.day]]
+		var eventDay = weekDayNum[replies[n]["event"]["eventDay"]]
+		
+		var daysToAdd = currentDay - 7 + eventDay
+		
+		eventDay = global.gameData["day"] + daysToAdd
+
+		global.eventData["date"][eventDay]["weekday"] = replies[n]["event"]["eventDay"]
+		global.eventData["date"][eventDay]["time"] = replies[n]["event"]["eventTOD"]
+		global.eventData["date"][eventDay]["name"] = replies[n]["event"]["name"]
+		global.eventData["date"][eventDay]["fail"]["noshow"] = replies[n]["event"]["noshow"]
+		global.eventData["date"][eventDay]["fail"]["cancel"] = replies[n]["event"]["cancel"]
 		
 	#if there is a progression array in json, update game progression variables
 	if replies[n].has("progression"):

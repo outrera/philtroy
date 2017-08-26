@@ -52,7 +52,7 @@ var gameData = {
 		"night"
 	], 
 	"event": {"name": "start", "stage": 1},
-	"scene": "schoolyard.tscn"}
+	"scene": "schoolyard"}
 
 var eventData = {}
 
@@ -80,7 +80,6 @@ func _ready():
 	set_process(true)
 	
 	eventData = load_json("res://data/events/gameEvents.json")
-	print(eventData)
 	
 	for location in locations:
 		sceneData[location] = load_json("res://data/locations/location_" + location + ".json")
@@ -109,7 +108,7 @@ func load_json(json):
 func goto_scene(scene):
     get_tree().change_scene("res://"+scene)
 
-func load_scene(name):
+func load_scene(sceneLocation): #change this first, see if any conflicts
 	var gameRoot = get_tree().get_root().get_node("Node")
 	
 	for child in gameRoot.get_node("scene").get_children():
@@ -119,11 +118,11 @@ func load_scene(name):
 		child.set_name("DELETED")
 		child.queue_free()
 		
-	var scene = load("res://data/locations/" + name + ".tscn")
+	var scene = load("res://data/locations/" + sceneLocation + ".tscn")
 	scene = scene.instance()
 	gameRoot.get_node("scene").add_child(scene)
 	
-	var location = sceneData[name][day][time]
+	var location = sceneData[sceneLocation][day][time]
 	
 	if location.has("actors"):
 		for name in location["actors"].keys():
@@ -152,10 +151,9 @@ func load_scene(name):
 	
 	#if today has event - override
 	if eventData["date"].has(str(gameData["day"])):
-		print("event")
 		eventOverride = load_json("events/" + eventData["date"][gameData["day"]]["name"] + ".json")
 	else:
-		print("no event")
+		pass
 	
 	#TODO: animate scene transition somehow(time label swapped with animation?)
 	#TODO: how to handle scene specific cameras?

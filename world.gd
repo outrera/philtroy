@@ -77,8 +77,9 @@ func _process(delta):
 	if Input.is_action_pressed("ui_exit"):
 		ui_exit()
 
-func map_location(a):
-	global.load_scene(a)
+func map_location(location):
+	global.load_scene(location)
+	global.gameData["scene"] = location
 	connect()
 	ui_exit()
 
@@ -172,7 +173,7 @@ func _input(event):
 				global.gameData["day"] += 1
 				global.day = global.gameData["weekday"][day]
 				global.time = global.gameData["time"][time]
-				global.load_scene("schoolhall")
+				global.load_scene(global.gameData["scene"])
 				
 				connect()
 					

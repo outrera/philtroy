@@ -16,7 +16,6 @@ func _ready():
 func _on_map01_mouse_enter():
 	map01.show()
 	label.set_text("School yard")
-	print(map01.get_pos())
 	label.set_pos(get_node("map01").get_pos() + Vector2(-30, 45))
 	
 func _on_map01_mouse_exit():
@@ -25,7 +24,6 @@ func _on_map01_mouse_exit():
 
 func _on_map01_input_event( viewport, event, shape_idx ):
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
-		print("exit_ui_01")
 		emit_signal("exit_ui", "schoolyard")
 
 func _on_map02_mouse_enter():
@@ -39,7 +37,6 @@ func _on_map02_mouse_exit():
 
 func _on_map02_input_event( viewport, event, shape_idx ):
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
-		print("exit_ui_02")
 		emit_signal("exit_ui", "schoolhall")
 
 func _on_map03_mouse_enter():
@@ -53,5 +50,4 @@ func _on_map03_mouse_exit():
 
 func _on_map03_input_event( viewport, event, shape_idx ):
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
-		print("exit_ui_03")
 		emit_signal("exit_ui", "myroom")
