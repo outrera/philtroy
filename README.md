@@ -27,6 +27,22 @@ ISSUES:
 Updates:
 =======
 
+2017/08/31
+
+So I keep adding and refining the dialogue system to better accommodate the event system I have planned.
+I had a plan to follow, to have the event system done by the end of august, but I would honestly rather 
+make a robust system than hurry this on..
+
+There have been numerous small changes since the 20th. I just haven´t update the readme.
+
+I have started to document my code, dialogue system docs below(incomplete, some parts not implemented yet):
+https://docs.google.com/document/d/10JHm-Dq9DuULpQpPpKmPTZXTJBKEw0tCD9WauN_B3RE/edit?usp=sharing 
+
+Now I have two weeks off work. I want to mainly work on replacing placeholder graphics with something more
+presentable, but I will naturally have time to finish code functionality, too (finish dialogue system, code
+event system). The goal to have a playable demo to present to online communities by the end of september 
+still stands. This will be the first official alpha release (0.1.0)
+
 2017/08/20
 
 Functional map UI (clicking on map location will load respective scene)

@@ -19,5 +19,8 @@ func _on_npc_trigger_input_event( camera, event, click_pos, click_normal, shape_
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
 		if event.is_pressed():
 			emit_signal("dialogue", identity, self.get_transform().origin)
+	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT:
+		if event.is_pressed():
+			emit_signal("look_at", "This is Ellie")
 
 

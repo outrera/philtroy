@@ -81,6 +81,7 @@ func _talk_to(identity, clickPos):
 	npc = identity
 	global.blocking_ui = true
 	get_parent().get_node("effects/blurfx").show()
+	get_parent().toggle_ui_icons("hide")
 	#we use a temp cache to be able to override charData without actually overwriting it
 	#TODO_ put the override here, uncomment conditional code
 #	if global.eventOverride != npc:
@@ -111,12 +112,12 @@ func _pick_reply(n):
 		#add:
 		var weekDayNum = {"monday": 1, "tuesday": 2, "wednesday": 3, "thursday": 4, "friday": 5, "saturday": 6, "sunday": 7}
 		
-		var currentDay = weekDayNum[global.gameData["weekday"][global.day]]
+		var currentDay = weekDayNum[global.gameData["weekday"][global.weekday]]
 		var eventDay = weekDayNum[replies[n]["event"]["eventDay"]]
 		
 		var daysToAdd = currentDay - 7 + eventDay
 		
-		eventDay = global.gameData["day"] + daysToAdd
+		eventDay = global.gameday + daysToAdd
 
 		global.eventData["date"][eventDay]["weekday"] = replies[n]["event"]["eventDay"]
 		global.eventData["date"][eventDay]["time"] = replies[n]["event"]["eventTOD"]
@@ -142,6 +143,7 @@ func _pick_reply(n):
 		charData[npc]["branch"] = replies[n]["next"]
 		get_parent().get_node("effects/blurfx").hide()
 		kill_dialogue()
+		get_parent().toggle_ui_icons("show")
 
 func _reply_mouseover(mouseover, reply):
 	if mouseover == "TRUE":

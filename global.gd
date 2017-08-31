@@ -1,7 +1,8 @@
 extends Node
 
-var day
-var time
+var gameday
+var weekday
+var timeofday
 var scene
 
 var tempData = {}
@@ -83,9 +84,10 @@ func _ready():
 	
 	for location in locations:
 		sceneData[location] = load_json("res://data/locations/location_" + location + ".json")
-
-	day = "monday"
-	time = "morning"
+	
+	gameday = 1
+	weekday = "monday"
+	timeofday = "morning"
 
 func _process(delta):
 	if Input.is_action_pressed("ui_reload"):
@@ -122,7 +124,7 @@ func load_scene(sceneLocation): #change this first, see if any conflicts
 	scene = scene.instance()
 	gameRoot.get_node("scene").add_child(scene)
 	
-	var location = sceneData[sceneLocation][day][time]
+	var location = sceneData[sceneLocation][weekday][timeofday]
 	
 	if location.has("actors"):
 		for name in location["actors"].keys():
@@ -150,8 +152,8 @@ func load_scene(sceneLocation): #change this first, see if any conflicts
 			get_node("objects").add_child(object)
 	
 	#if today has event - override
-	if eventData["date"].has(str(gameData["day"])):
-		eventOverride = load_json("events/" + eventData["date"][gameData["day"]]["name"] + ".json")
+	if eventData["date"].has(str(gameday)) and eventData["date"][str(gameday)][0].has(timeofday):
+		eventOverride = load_json("events/" + eventData["date"][str(gameday)][0][timeofday]["name"] + ".json")
 	else:
 		pass
 	

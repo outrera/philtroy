@@ -171,6 +171,8 @@ v_offset = 0.0
 
 [node name="effects" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="tween" type="Tween" parent="effects"]
 
 playback/process_mode = 1
@@ -198,6 +200,7 @@ stretch_mode = 0
 
 [node name="ui" type="Control" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -485,12 +488,15 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90123, 1.70829, 8.278
 
 [node name="objects" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="object" parent="objects" instance=ExtResource( 18 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.122, 1.70829, 0 )
 
 [node name="scene" type="Area" parent="."]
 
+editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555074, 0 )
 input/ray_pickable = true
@@ -524,6 +530,7 @@ _update_shape_index = 0
 
 [node name="player" parent="." instance=ExtResource( 20 )]
 
+editor/display_folded = true
 script/script = ExtResource( 21 )
 
 [node name="geometry" parent="player"]
