@@ -21,9 +21,6 @@ var is_moving = false
 
 #let´s make this a json loaded at ready, so as to not clutter the script
 var gameData = {
-	"milk": 0, 
-	"cookies": 0, 
-	"day": 1, 
 	"month": [
 		"january",
 		"february",
@@ -52,8 +49,7 @@ var gameData = {
 		"evening",
 		"night"
 	], 
-	"event": {"name": "start", "stage": 1},
-	"scene": "schoolyard"}
+}
 
 var eventData = {}
 
@@ -113,6 +109,7 @@ func goto_scene(scene):
 func load_scene(sceneLocation): #change this first, see if any conflicts
 	var gameRoot = get_tree().get_root().get_node("Node")
 	
+	#TODO:delete player
 	for child in gameRoot.get_node("scene").get_children():
 		child.set_name("DELETED")
 		child.queue_free()
@@ -126,6 +123,8 @@ func load_scene(sceneLocation): #change this first, see if any conflicts
 	
 	var location = sceneData[sceneLocation][weekday][timeofday]
 	
+	#TODO: respawn player
+
 	if location.has("actors"):
 		for name in location["actors"].keys():
 			var pos = location["actors"][name]["pos"]

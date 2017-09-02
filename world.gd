@@ -57,8 +57,9 @@ func _ready():
 		
 	get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
 	
-	global.scene = "res://data/locations/location_schoolyard.json"
-	sceneData = global.load_json(global.scene)
+	global.scene = "schoolyard"
+	#Why? WHY is does the below affect rotation of the NPC if I remove it?!
+	sceneData = global.load_json("res://data/locations/location_schoolyard.json")
 	global.load_scene("schoolyard")
 	
 	get_node("ui/map_ui").connect("exit_ui", self, "map_location")
@@ -78,8 +79,9 @@ func _process(delta):
 		ui_exit()
 
 func map_location(location):
+	global.scene = location
 	global.load_scene(location)
-	global.gameData["scene"] = location
+	
 	connect()
 	ui_exit()
 
@@ -170,11 +172,10 @@ func _input(event):
 						month += 1
 						if month > 12:
 							month = 0
-				global.gameData["day"] += 1
 				global.gameday += 1 # replace the above with this, remove day from global.gameData
 				global.weekday = global.gameData["weekday"][day]
 				global.timeofday = global.gameData["time"][time]
-				global.load_scene(global.gameData["scene"])
+				global.load_scene(global.scene)
 				
 				connect()
 					
