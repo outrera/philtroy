@@ -519,7 +519,7 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.122, 1.70829, 0 )
 [node name="scene" type="Area" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469474, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
@@ -549,9 +549,12 @@ _update_shape_index = 0
 
 [node name="schoolyard" parent="scene" instance=ExtResource( 19 )]
 
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0856351, 0 )
+
 [node name="player" parent="." instance=ExtResource( 20 )]
 
 editor/display_folded = true
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.458449, 0 )
 script/script = ExtResource( 21 )
 
 [node name="dialogue" parent="." instance=ExtResource( 22 )]

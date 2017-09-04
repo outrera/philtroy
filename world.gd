@@ -64,6 +64,7 @@ func _ready():
 	
 	get_node("ui/map_ui").connect("exit_ui", self, "map_location")
 	connect()
+	print(get_node("scene").get_transform().origin)
 	
 func connect():
 	for object in get_node("objects").get_children():

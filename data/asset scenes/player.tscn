@@ -24,7 +24,7 @@ collision/margin = 0.001
 [node name="geometry" type="TestCube" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 layers = 1
 geometry/visible = true
 geometry/material_override = null
@@ -70,7 +70,6 @@ _update_shape_index = 0
 [node name="rotation_helper" type="Area" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.394543, 0 )
 input/ray_pickable = false
 input/capture_on_drag = false
 shape_count = 0
