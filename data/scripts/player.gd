@@ -38,7 +38,7 @@ func _fixed_process(delta):
 			#TODO: also, if player has already turned towards target, turn_towards shouldn´t run. Causing glitches....
 			#TODO: probably easily solved by running a timer on each move/rotate, no turn takes more than 1.5 secs
 			if player_pos.distance_to(target_pos) > 3:
-				player.move(playerFacing*get_fixed_process_delta_time()*3)
+				player.move(Vector3(playerFacing.x, 0, playerFacing.z)*get_fixed_process_delta_time()*3)
 			if player_pos.distance_to(target_pos) < 0.5:
 				global.is_moving = false
 				print("stop")

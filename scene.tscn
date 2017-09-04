@@ -154,6 +154,30 @@ script/script = ExtResource( 1 )
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 environment = SubResource( 1 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( -0.838498, -0.0252218, 0.54432, 0.40072, 0.648371, 0.647332, -0.369248, 0.760907, -0.533551, 10.8896, 12.4282, -12.6185 )
+layers = 1
+params/enabled = true
+params/editor_only = false
+params/bake_mode = 0
+params/energy = 1.0
+colors/diffuse = Color( 0.817649, 0.859375, 0.715027, 1 )
+colors/specular = Color( 1, 1, 1, 1 )
+shadow/shadow = true
+shadow/darkening = 0.0
+shadow/z_offset = 0.05
+shadow/z_slope_scale = 0.0
+shadow/esm_multiplier = 60.0
+shadow/blur_passes = 1.0
+projector = null
+operator = 0
+shadow/mode = 0
+shadow/max_distance = 30.0
+shadow/split_weight = 0.5
+shadow/zoffset_scale = 2.0
+
 [node name="camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -170,8 +194,6 @@ h_offset = 0.0
 v_offset = 0.0
 
 [node name="effects" type="Node" parent="."]
-
-editor/display_folded = true
 
 [node name="tween" type="Tween" parent="effects"]
 
@@ -482,13 +504,13 @@ transform/pos = Vector2( 274.88, 1083.05 )
 
 [node name="npcs" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="npc" parent="npcs" instance=ExtResource( 17 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.90123, 1.70829, 8.27804 )
 
 [node name="objects" type="Node" parent="."]
-
-editor/display_folded = true
 
 [node name="object" parent="objects" instance=ExtResource( 18 )]
 
@@ -496,9 +518,8 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.122, 1.70829, 0 )
 
 [node name="scene" type="Area" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555074, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469474, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1

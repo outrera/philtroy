@@ -5,6 +5,7 @@ signal dialogue(a,b)
 
 #will just carry character name, all other data will be moved to charData in global.gd
 var identity = "ellie"
+var branch = "a"
 
 func _ready():
 	pass

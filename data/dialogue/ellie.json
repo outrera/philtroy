@@ -3,8 +3,11 @@
 	"background": "background.png",
 	"dialogue": {
 		"a": {
-			"animation": "res://asset scenes/NPC2_talkanim.tscn",
-			"text" : ["this is dialogue A"],
+			"animation": "res://data/npcs/ellie_talkanim.tscn",
+			"text" : [
+				"this is dialogue A", 
+				"second line"
+				],
 			"replies" : [
 				{
 				"next": "b",
@@ -24,6 +27,7 @@
 				]
 		},
 		"b": {
+			"animation": "res://data/npcs/ellie_talkanim.tscn",
 			"text" : ["this is dialogue B"],
 			"replies" : [
 				{
@@ -34,6 +38,7 @@
 			]	
 		},
 		"c": {
+			"animation": "res://data/npcs/ellie_talkanim.tscn",
 			"text" : ["this is dialogue C"],
 			"replies" : [
 				{
@@ -44,6 +49,7 @@
 			]	
 		},
 		"d": {
+			"animation": "res://data/npcs/ellie_talkanim.tscn",
 			"text" : ["this is dialogue D"],
 			"replies" : [
 				{

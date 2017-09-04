@@ -17,7 +17,7 @@ onready var VIEWSIZE = get_viewport().get_rect().size
 var dialogBox = {"width": 1000, "height": 60, "posx": 500, "posy": 370}
 
 var npcName
-var talkAnim
+var talkAnim = null
 var npc
 
 var numDialogueText = 0
@@ -126,10 +126,13 @@ func _pick_reply(n):
 		global.eventData["date"][eventDay]["fail"]["cancel"] = replies[n]["event"]["cancel"]
 		
 	#if there is a progression array in json, update game progression variables
-	if replies[n].has("progression"):
-		for item in range(0, replies[n]["progression"].size()):
-			var affected = replies[n]["progression"][item]["affected"]
-			get_node("npcs/" + affected).identity.branch = replies[n]["progression"][item]["branch"]
+	if replies[n].has("progress"):
+		for item in range(0, replies[n]["progress"].size()):
+			var affected = replies[n]["progress"][item]["name"]
+			if replies[n]["progress"][item]["next"].ends_with("json"):
+				global.charData[affected]["dialogue"] = replies[n]["progress"][item]["next"]
+			else:
+				global.charData[affected]["branch"] = replies[n]["progress"][item]["next"]
 	
 	#if "exit" is "false" take value from "next" and start next dialogue
 	if replies[n]["exit"] != "true":
@@ -162,7 +165,9 @@ func start_dialogue(json):
 	npcName = talkData["name"]
 	
 	if branch.has("animation"):
-		talkAnim = branch["animation"]
+		talkAnim = load(branch["animation"])
+	else:
+		talkAnim = null
 
 	numDialogueText = branch["text"].size()
 	
@@ -173,6 +178,23 @@ func start_dialogue(json):
 		#needed to add this otherwise paging didn´t work like it should
 		replyMouseover = "FALSE"
 		numReplies = 0
+	
+	#TODO: This condition decides if to open dialogue in window, or display dialogue over character heads. Low priority..
+	if branch.has("window"):
+		pass
+		
+	#TODO: This condition currently only handles exact values, needs to evaluate if value is above another value too (ex money)
+	#0 is variable to check for
+	#1 is value of variable, and if that variable corresponds to gameVars, set 2 as current dialogue
+	#2 is target conversation (dialogue or branch)
+	if branch.has("condition"):
+		for item in branch["condition"]:
+			if global.gameVars.has(branch["condition"][item][0]):
+				if global.gameVars[branch["condition"][item][0]] == branch["condition"][item][1]:
+					if branch["condition"][item][2].ends_with("json"):
+						global.charData[talkData["name"]]["dialogue"] = branch["condition"][item][2]
+					else:
+						global.charData[talkData["name"]]["branch"] = branch["condition"][item][2]
 	
 	#setup dialog window
 	setup_dialogue_window()
@@ -213,11 +235,12 @@ func setup_dialogue_window():
 			get_node("ui_dialogue/reply" + str(n+1)).num_reply = n
 			reply_offset += 30
 	
-	talkAnim = load("res://data/npcs/" + npcName + "_talkanim.tscn")
-	talkAnim = talkAnim.instance()
-	talkAnim.set_scale(Vector2(1.5,1.5))
-	talkAnim.set_pos(Vector2(VIEWSIZE.x/2 + 40 - dialogBox.width/2, VIEWSIZE.y - dialogBox.posy + 20))
-	get_node("ui_dialogue").add_child(talkAnim)
+	#TODO: this should be set dynamically by the json dialogue file
+	if talkAnim != null:
+		talkAnim = talkAnim.instance()
+		talkAnim.set_scale(Vector2(1.5,1.5))
+		talkAnim.set_pos(Vector2(VIEWSIZE.x/2 + 40 - dialogBox.width/2, VIEWSIZE.y - dialogBox.posy + 20))
+		get_node("ui_dialogue").add_child(talkAnim)
 
 	reply_offset = 0
  
