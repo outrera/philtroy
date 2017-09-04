@@ -48,7 +48,8 @@ func turn_towards():
 	var lookDir = target_pos - player_pos
 	var rotTransform = t.looking_at(target_pos,Vector3(0,1,0))
 	var thisRotation = Quat(t.basis).slerp(rotTransform.basis,value*0.1)
-	value += get_fixed_process_delta_time()
+	if value < 1:
+		value += get_fixed_process_delta_time()
 	player.set_transform(Transform(thisRotation,t.origin))	
 	player_pos = player.get_global_transform().origin
 	helper_pos = helper.get_global_transform().origin	

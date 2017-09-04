@@ -72,6 +72,8 @@ var locations = [
 	"schoolyard",
 	"schoolhall",
 	"myroom"]
+	
+var playerScript = preload("res://data/scripts/player.gd")
 
 func _ready():
 	set_process(true)
@@ -109,7 +111,21 @@ func goto_scene(scene):
 func load_scene(sceneLocation): #change this first, see if any conflicts
 	var gameRoot = get_tree().get_root().get_node("Node")
 	
-	#TODO:delete player
+#	#TODO:delete player, and respawn
+#	print(gameRoot.get_node("player").get_transform().origin)
+#	print(gameRoot.get_node("player").get_rotation())
+	
+#	gameRoot.get_node("player").queue_free()
+#	gameRoot.get_node("player").set_name("DELETED")
+#	
+#	var player = load("res://data/asset scenes/player.tscn")
+#	player = player.instance()
+#	player.set_translation(Vector3(0,0.46,0))
+#	player.set_rotation(Vector3(-0,0,-0))
+#	player.set_name("player")
+#	player.set_script(playerScript)
+#	gameRoot.add_child(player)
+
 	for child in gameRoot.get_node("scene").get_children():
 		child.set_name("DELETED")
 		child.queue_free()
