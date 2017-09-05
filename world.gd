@@ -149,9 +149,7 @@ func _input(event):
 				ui_hide_show(get_node("ui/map_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 		elif hoverNode.get_name() == "calendar":	
 			#for Godot 3.0 use if(event is InputEventMouseButton)
-			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
-				
 				#keep track of day, week and month
 				time += 1
 				if time == 4:

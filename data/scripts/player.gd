@@ -61,12 +61,15 @@ func turn_towards():
 func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	if !global.blocking_ui:
 		#for Godot 3.0 use if(event is InputEventMouseButton)
-		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
-			global.is_moving = true
-			value = 0 
-			player_pos = player.get_global_transform().origin
-			helper_pos = helper.get_global_transform().origin
-			target_pos = click_pos
+		if event.type == InputEvent.MOUSE_BUTTON:
+			if event.button_index == BUTTON_LEFT:
+				if event.pressed:
+					global.is_moving = true
+					value = 0 
+					player_pos = player.get_global_transform().origin
+					helper_pos = helper.get_global_transform().origin
+					target_pos = click_pos
+					print("clicked")
 			
 	else:
 		#need to add this so player doesn´t move when exiting dialog
