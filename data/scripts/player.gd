@@ -32,7 +32,7 @@ func _fixed_process(delta):
 	if isRotating:
 		pass
 	if global.is_moving:
-		if !global.blocking_ui:
+		if global.blocking_ui != true:
 			turn_towards()
 			#TODO: this kinda works, but not 100%. This should only be compared to on click distance to target, not all the time
 			#TODO: also, if player has already turned towards target, turn_towards shouldn´t run. Causing glitches....
@@ -61,7 +61,7 @@ func turn_towards():
 func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	if !global.blocking_ui:
 		#for Godot 3.0 use if(event is InputEventMouseButton)
-		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed and global.blocking_ui == false:
+		if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.pressed:
 			global.is_moving = true
 			value = 0 
 			player_pos = player.get_global_transform().origin
@@ -71,3 +71,4 @@ func _on_scene_input_event( camera, event, click_pos, click_normal, shape_idx ):
 	else:
 		#need to add this so player doesn´t move when exiting dialog
 		direction = Vector3(0,0,0)
+	global.clicked = false

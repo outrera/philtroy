@@ -5,8 +5,9 @@
 		"a": {
 			"animation": "res://data/npcs/ellie_talkanim.tscn",
 			"text" : [
-				"this is dialogue A", 
-				"second line"
+				"this is dialogue A
+				on to the second line (more...)", 
+				"more dialogue"
 				],
 			"replies" : [
 				{

@@ -4,6 +4,7 @@ var gameday
 var weekday
 var timeofday
 var scene
+var clicked
 
 var tempData = {}
 var sceneData = {}
@@ -166,6 +167,9 @@ func load_scene(sceneLocation): #change this first, see if any conflicts
 		eventOverride = load_json("events/" + eventData["date"][str(gameday)][0][timeofday]["name"] + ".json")
 	else:
 		pass
+		
+	if blocking_ui == true:
+		blocking_ui = false
 	
 	#TODO: animate scene transition somehow(time label swapped with animation?)
 	#TODO: how to handle scene specific cameras?

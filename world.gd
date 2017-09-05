@@ -129,7 +129,7 @@ func _input(event):
 				toggle_ui_icons("hide")
 				var positionDelta = get_node("ui/phone_ui").get_pos() - phoneShowPos
 				ui_hide_show(get_node("ui/phone_ui"), Vector2(-positionDelta), Tween.TRANS_QUAD, Tween.EASE_OUT)
-		if hoverNode.get_name() == "schoolbag":	
+		elif hoverNode.get_name() == "schoolbag":	
 			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 				global.blocking_ui = true
@@ -138,7 +138,7 @@ func _input(event):
 				toggle_ui_icons("hide")
 				var positionDelta = get_node("ui/phone_ui").get_pos() - schoolbagShowPos
 				ui_hide_show(get_node("ui/schoolbag_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
-		if hoverNode.get_name() == "map":	
+		elif hoverNode.get_name() == "map":	
 			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
 				global.blocking_ui = true
@@ -147,19 +147,11 @@ func _input(event):
 				toggle_ui_icons("hide")
 				var positionDelta = get_node("ui/phone_ui").get_pos() - mapShowPos
 				ui_hide_show(get_node("ui/map_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
-		if hoverNode.get_name() == "calendar":	
+		elif hoverNode.get_name() == "calendar":	
 			#for Godot 3.0 use if(event is InputEventMouseButton)
-			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
-				global.blocking_ui = true
-				calendarOpen = true
-				screenBlur.show()
-				toggle_ui_icons("hide")
-				var positionDelta = get_node("ui/phone_ui").get_pos() - calendarShowPos
-				ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
-		
-		if hoverNode.get_name() == "calendar":	
 			#for Godot 3.0 use if(event is InputEventMouseButton)
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT and event.is_pressed():
+				
 				#keep track of day, week and month
 				time += 1
 				if time == 4:
@@ -181,6 +173,15 @@ func _input(event):
 				connect()
 					
 				get_node("ui/dateLabel").set_text(global.gameData.time[time] + ", " + global.gameData.weekday[day])
+#				print("unblocked")			
+
+			elif event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_RIGHT and event.is_pressed():
+				global.blocking_ui = true
+				calendarOpen = true
+				screenBlur.show()
+				toggle_ui_icons("hide")
+				var positionDelta = get_node("ui/phone_ui").get_pos() - calendarShowPos
+				ui_hide_show(get_node("ui/calendar_ui"), Vector2(0,-1000), Tween.TRANS_QUAD, Tween.EASE_OUT)
 
 #the below functions handle hover animations for UI icons. This could probably be handled more efficiently in one generic function, not sure how
 func _on_phone_mouse_enter():
