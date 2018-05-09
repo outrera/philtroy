@@ -1,5 +1,7 @@
 # philtroy
 
+NOTE: THIS VERSION IS NO LONGER UPDATED. ALL PROGRESS IS BEING DIRECTED TOWARDS THE GODOT 3 VERSION. 
+
 Philemon Troy and the Student Body Pageant is a point´n´click adventure/dating game in the vein of Leisure suit Larry. The version on GitHub will be censored to comply with TOS, the code and functionality will be the same as the full version.
 
 Disclaimer: THIS IS A VERY BAREBONES GAME PROTYPE RIGHT NOW. DON`T DOWNLOAD THIS EXPECTING A GAME ANYWHERE NEAR COMPLETION. It´s basically a cube gliding around on a board, talking to other cubes :) Project is currently on a bit of a backburner, developmentwise, waiting for Godot 3.0 docs to mature, so I can migrate the project. The code might still be interesting to you, if you want to make the same type of game, hence why I´m publishing it. To follow progress on art, go here: http://cultofape.com/album/?cws_album=6468617191931709873&cws_album_title=Phil%20Troy%20WIP
